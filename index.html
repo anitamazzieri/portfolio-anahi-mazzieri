@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portafolio profesional de M. Anahí Mazzieri Holguín, Project Manager, Product Owner y Scrum Master con background en QA." />
-  <title>M. Anahí Mazzieri Holguín | Project Manager & Scrum Master</title>
+  <meta name="description" content="Portafolio profesional de M. Anahí Mazzieri Holguín, Project Manager con experiencia práctica en agilidad, producto y calidad, y background en QA." />
+  <title>M. Anahí Mazzieri Holguín | Project Manager · Agile · Product · QA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -157,15 +157,12 @@
     .project .tag { display: inline-flex; margin-bottom: 14px; }
 
     .project-media {
-  height: 240px;
+  min-height: 240px;
   border-radius: 18px;
   border: 1px dashed var(--line);
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--primary) 12%, transparent), color-mix(in srgb, var(--primary-2) 10%, transparent)),
     var(--surface-strong);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: -4px 0 18px;
   color: var(--muted);
   font-weight: 800;
@@ -175,15 +172,38 @@
   overflow: hidden;
 }
 
-   .project-media a {
-  width: 100%;
-  height: 100%;
-  display: flex;
+    .project-carousel {
+  position: relative;
+  height: 240px;
+  display: grid;
+  place-items: center;
+}
+
+    .carousel-slide {
+  position: absolute;
+  inset: 0;
+  display: none;
   align-items: center;
   justify-content: center;
 }
 
-   .project-media img {
+    .carousel-slide.active {
+  display: flex;
+}
+
+    .carousel-slide button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  border-radius: 14px;
+}
+
+    .carousel-slide button:hover {
+  transform: none;
+}
+
+    .carousel-slide img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
@@ -194,6 +214,59 @@
   border-radius: 14px;
   cursor: zoom-in;
 }
+
+    .carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: color-mix(in srgb, var(--surface-strong) 86%, transparent);
+  border: 1px solid var(--line);
+  color: var(--text);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+  z-index: 2;
+}
+
+    .carousel-control:hover {
+  transform: translateY(-50%);
+}
+
+    .carousel-control.prev { left: 10px; }
+    .carousel-control.next { right: 10px; }
+
+    .carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 2;
+}
+
+    .carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--muted) 45%, transparent);
+  border: 0;
+}
+
+    .carousel-dot.active {
+  width: 22px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+}
+
+    .carousel-placeholder {
+  min-height: 216px;
+  display: grid;
+  place-items: center;
+}
+
     .lightbox {
   display: none;
   position: fixed;
@@ -206,12 +279,12 @@
   cursor: zoom-out;
 }
 
-   .lightbox:target {
+    .lightbox.open {
   display: flex;
 }
 
-   .lightbox img {
-  max-width: min(92vw, 520px);
+    .lightbox img {
+  max-width: min(92vw, 760px);
   max-height: 92vh;
   width: auto;
   height: auto;
@@ -300,13 +373,13 @@
     <section class="hero container">
       <div class="hero-grid">
         <article class="card hero-copy reveal">
-          <span class="eyebrow">Project Manager · Product Owner · Scrum Master</span>
+          <span class="eyebrow">Project Management · Agile Delivery · Product & QA</span>
           <h1>Gestión de proyectos con foco en <span class="headline-gradient">calidad, valor y ejecución ágil.</span></h1>
-          <p class="lead">Soy M. Anahí Mazzieri Holguín, Project Manager con background en QA y experiencia liderando iniciativas end-to-end en entornos fintech orientados a billeteras virtuales mobile y web.</p>
+          <p class="lead">Soy M. Anahí Mazzieri Holguín, Project Manager con experiencia práctica en agilidad, producto y calidad, y background en QA. Acompaño iniciativas end-to-end en entornos fintech orientados a billeteras virtuales mobile y web.</p>
           <div class="hero-tags" aria-label="Especialidades">
             <span class="tag">Agile / Scrum</span>
             <span class="tag">Stakeholder Management</span>
-            <span class="tag">Product Ownership</span>
+            <span class="tag">Product & Backlog</span>
             <span class="tag">QA & Testing</span>
             <span class="tag">Fintech / Wallets</span>
             <span class="tag">Selenium + Python</span>
@@ -315,7 +388,7 @@
             <span class="tag">IA aplicada</span>
           </div>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="#portfolio">Ver propuesta de valor</a>
+            <a class="btn btn-primary" href="#portfolio">Ver proyectos</a>
             <a class="btn btn-soft" href="mailto:anitamazzieri@gmail.com">Contactar</a>
             <a class="btn btn-soft" href="https://linkedin.com/in/anahi-mazzieri" target="_blank" rel="noopener">LinkedIn</a>
           </div>
@@ -324,13 +397,13 @@
           <div>
             <img class="avatar photo-avatar" src="foto-perfil.jpeg" alt="Foto de perfil de Anahí Mazzieri">
             <h3 style="margin-top: 22px;">Perfil profesional</h3>
-            <p class="muted">Conecto estrategia, producto, stakeholders y equipos técnicos para convertir objetivos en entregas claras, medibles y sostenibles.</p>
+            <p class="muted">Conecto estrategia, producto, stakeholders y equipos técnicos para transformar necesidades de negocio en entregas claras, medibles y sostenibles.</p>
           </div>
           <div class="quick-facts">
             <div class="fact"><strong>End-to-end</strong><span>Liderazgo del ciclo completo de proyectos</span></div>
             <div class="fact"><strong>Agile</strong><span>Facilitación Scrum y mejora continua</span></div>
             <div class="fact"><strong>QA</strong><span>Base sólida en calidad y testing</span></div>
-            <div class="fact"><strong>Producto</strong><span>Backlog, historias de usuario y valor</span></div>
+            <div class="fact"><strong>Producto</strong><span>Backlog, historias de usuario, alcance y valor</span></div>
           </div>
         </aside>
       </div>
@@ -363,33 +436,49 @@
     <section id="experiencia" class="container">
       <div class="section-head reveal">
         <h2>Experiencia</h2>
-        <p>Trayectoria combinando gestión de proyectos, producto, Scrum y aseguramiento de calidad en soluciones digitales.</p>
+        <p>Trayectoria con evolución desde QA Lead hacia gestión de proyectos, combinando calidad, delivery ágil, producto y coordinación con stakeholders.</p>
       </div>
       <div class="timeline">
         <article class="card role reveal">
-          <div class="role-top"><h3>Project Manager · Alkimiaz</h3><span class="date">feb 2025 – mar 2026</span></div>
+          <div class="role-top"><h3>Project Manager · Alkimiaz</h3><span class="date">feb 2026 – abr 2026</span></div>
           <ul>
             <li>Liderazgo de proyectos end-to-end en soluciones fintech.</li>
             <li>Coordinación de equipos multidisciplinarios y gestión de stakeholders.</li>
-            <li>Facilitación de ceremonias ágiles, definición y priorización de historias de usuario.</li>
+            <li>Facilitación de ceremonias ágiles Scrum.</li>
+            <li>Definición y priorización de historias de usuario junto a equipos técnicos y de negocio.</li>
             <li>Seguimiento de entregas, cumplimiento de objetivos y optimización de procesos para mejorar tiempos de entrega.</li>
             <li>Reducción de incidencias en producción mediante un enfoque preventivo de calidad.</li>
           </ul>
         </article>
         <article class="card role reveal">
+          <div class="role-top"><h3>QA / Project Manager · Alkimiaz</h3><span class="date">ago 2025 – feb 2026</span></div>
+          <ul>
+            <li>Etapa combinando responsabilidades de QA y gestión de proyectos en productos fintech.</li>
+            <li>Homologación de productos fintech con proveedores externos bajo modalidad por horas.</li>
+            <li>Coordinación de pruebas, seguimiento de observaciones y comunicación de avances entre equipos internos y proveedores.</li>
+            <li>Acompañamiento en procesos de aceptación funcional para asegurar entregas alineadas a requisitos técnicos y de negocio.</li>
+            <li>Seguimiento de incidencias, validaciones funcionales y documentación de acuerdos para facilitar la toma de decisiones.</li>
+          </ul>
+        </article>
+        <article class="card role reveal">
           <div class="role-top"><h3>QA Lead · Alkimiaz</h3><span class="date">feb 2025 – ago 2025</span></div>
           <ul>
-            <li>Coordinación de pruebas funcionales, smoke y end-to-end en billeteras virtuales mobile y web.</li>
-            <li>Gestión de equipo QA, planificación y ejecución de estrategias de testing.</li>
-            <li>Comunicación con stakeholders y aseguramiento de calidad en entregas.</li>
+            <li>Coordinación de pruebas funcionales, smoke y end-to-end en plataformas de billeteras virtuales mobile y web.</li>
+            <li>Gestión de equipo QA.</li>
+            <li>Planificación y ejecución de estrategias de testing.</li>
+            <li>Comunicación con stakeholders.</li>
+            <li>Aseguramiento de calidad en entregas.</li>
           </ul>
         </article>
         <article class="card role reveal">
           <div class="role-top"><h3>Software QA Tester · GOIAR</h3><span class="date">jul 2023 – ago 2025</span></div>
           <ul>
-            <li>Ejecución de pruebas manuales y automatizadas en plataformas mobile y web.</li>
-            <li>Diseño y mantenimiento de casos de prueba, validación funcional y end-to-end.</li>
-            <li>Coordinación operativa del equipo de QA, homologaciones con proveedores externos y seguimiento de incidencias.</li>
+            <li>Ejecución de pruebas manuales y automatizadas en plataformas de billeteras virtuales mobile y web.</li>
+            <li>Diseño y mantenimiento de casos de prueba.</li>
+            <li>Validación funcional y end-to-end de aplicaciones.</li>
+            <li>Coordinación operativa del equipo de QA y rol de referente frente a otros equipos y stakeholders.</li>
+            <li>Gestión de homologaciones con proveedores externos.</li>
+            <li>Reporte y seguimiento de incidencias.</li>
             <li>Mejora de procesos de testing y coordinación entre equipos.</li>
           </ul>
         </article>
@@ -399,7 +488,7 @@
     <section id="skills" class="container">
       <div class="section-head reveal">
         <h2>Skills y herramientas de trabajo</h2>
-        <p>Competencias reforzadas para posicionar el perfil como Project Manager, Scrum Master, Product Owner y gestora de proyectos digitales.</p>
+        <p>Competencias orientadas a gestión de proyectos digitales, delivery ágil, producto, calidad y coordinación de equipos.</p>
       </div>
       <div class="tabs reveal" role="tablist" aria-label="Filtro de skills">
         <button class="tab active" data-filter="all">Todas</button>
@@ -414,8 +503,8 @@
         <div class="skill" data-type="management">Delivery Management<small>Gestión de entregas, tiempos y dependencias</small></div>
         <div class="skill" data-type="management">Risk & Issue Management<small>Anticipación de riesgos y seguimiento de incidencias</small></div>
         <div class="skill" data-type="management">Process Improvement<small>Optimización operativa y mejora continua</small></div>
-        <div class="skill" data-type="agile">Scrum Master<small>Ceremonias, facilitación y remoción de bloqueos</small></div>
-        <div class="skill" data-type="agile">Product Ownership<small>Backlog, prioridades, valor y alcance</small></div>
+        <div class="skill" data-type="agile">Facilitación Scrum<small>Ceremonias, acuerdos de trabajo y remoción de bloqueos</small></div>
+        <div class="skill" data-type="agile">Product & Backlog Management<small>Prioridades, valor, alcance y seguimiento funcional</small></div>
         <div class="skill" data-type="agile">User Stories<small>Definición, refinamiento y criterios de aceptación</small></div>
         <div class="skill" data-type="agile">Agile Methodologies<small>Scrum, iteración, feedback y mejora continua</small></div>
         <div class="skill" data-type="quality">QA / Testing<small>Calidad funcional, smoke y end-to-end</small></div>
@@ -443,8 +532,8 @@
 
     <section id="tecnologias" class="container">
       <div class="section-head reveal">
-        <h2>Tecnologías, dominios y prácticas</h2>
-        <p>Mapa rápido del ecosistema profesional para roles de gestión de proyectos digitales, Scrum y calidad.</p>
+        <h2>Herramientas, dominios y prácticas</h2>
+        <p>Mapa rápido del ecosistema profesional para roles de Project Management, Agile Delivery, producto y calidad.</p>
       </div>
       <div class="stack-grid">
         <article class="card stack-card reveal">
@@ -460,7 +549,7 @@
             <span class="tag">Sprint Planning</span>
             <span class="tag">User Stories</span>
             <span class="tag">Criterios de aceptación</span>
-            <span class="tag">Roadmap</span>
+            <span class="tag">Roadmap / Planning</span>
             <span class="tag">Google Workspace</span>
             <span class="tag">Microsoft Office</span>
             <span class="tag">Slack / Teams</span>
@@ -502,7 +591,7 @@
             <div class="metric"><strong>Jira</strong><span>Backlog, tickets y sprints</span></div>
             <div class="metric"><strong>Postman</strong><span>Validación de APIs</span></div>
             <div class="metric"><strong>QA</strong><span>Estrategia y ejecución</span></div>
-            <div class="metric"><strong>Delivery</strong><span>Seguimiento de objetivos</span></div>
+            <div class="metric"><strong>Agile</strong><span>Facilitación y mejora continua</span></div>
             <div class="metric"><strong>Delivery</strong><span>Entregas de valor</span></div>
           </div>
         </article>
@@ -521,52 +610,75 @@
     <section id="portfolio" class="container">
       <div class="section-head reveal">
         <h2>Portafolio de proyectos</h2>
-        <p>Casos y ejemplos de proyectos presentados con contexto, rol, metodología, entregables e impacto. Esta sección queda preparada para sumar las descripciones y fotos que compartas.</p>
+        <!--<p>Casos y ejemplos de proyectos presentados con contexto, rol, metodología, entregables e impacto. Esta sección queda preparada para sumar las descripciones y fotos que compartas.</p> -->
       </div>
       <div class="portfolio-grid">
         <article class="card project reveal">
           <div class="project-media">
-            <a href="#colorshop-full" aria-label="Ampliar imagen de la app mobile Colorshop">
-              <img src="assets/colorshop.png" alt="Captura de la app mobile de Colorshop">
-            </a>
+            <div class="project-carousel" aria-label="Carrusel de imágenes del proyecto Colorshop">
+              <div class="carousel-slide active">
+                <button type="button" class="open-lightbox" data-full="assets/colorshop.png" aria-label="Ampliar captura 1 de Colorshop">
+                  <img src="assets/colorshop.png" alt="Captura 1 de la app mobile de Colorshop">
+                </button>
+              </div>
+              <!-- Para sumar más imágenes, duplicá este bloque y cambiá src, data-full y alt:
+              <div class="carousel-slide">
+                <button type="button" class="open-lightbox" data-full="assets/colorshop-2.png" aria-label="Ampliar captura 2 de Colorshop">
+                  <img src="assets/colorshop-2.png" alt="Captura 2 de la app mobile de Colorshop">
+                </button>
+              </div>
+              -->
+              <button type="button" class="carousel-control prev" aria-label="Imagen anterior">‹</button>
+              <button type="button" class="carousel-control next" aria-label="Imagen siguiente">›</button>
+              <div class="carousel-dots" aria-label="Indicadores del carrusel"></div>
+            </div>
           </div>
           <!-- <span class="tag">Proyecto 01</span> -->
           <h3>App mobile Colorshop</h3>
-          <p class="muted">Testing manual integral de la aplicación mobile y su Backoffice Administrativo web, incluyendo armado de test cases, reportingvalidación funcional, pruebas exploratorias, regresión, detección y seguimiento de incidencias para asegurar
-    una experiencia estable antes de cada entrega.</p>
+          <p class="muted"><strong>Contexto:</strong> aplicación mobile y backoffice administrativo web con necesidad de validar estabilidad funcional antes de cada entrega.</p>
+          <p class="muted"><strong>Rol:</strong> QA Manual, con participación en la planificación de pruebas, documentación de casos, reporting y seguimiento de incidencias.</p>
+          <p class="muted"><strong>Impacto:</strong> mayor trazabilidad de defectos, detección temprana de riesgos funcionales y soporte a releases más confiables.</p>
           <div class="project-meta"><span>QA Manual</span>
     <span>Mobile Testing</span>
+    <span>Backoffice Web</span>
     <span>Regresión</span>
-    <span>Exploratorio</span></div>
+    <span>Reporting</span></div>
         </article>
     
         <article class="card project reveal">
-          <div class="project-media">Foto / captura del proyecto</div>
+          <div class="project-media">
+            <div class="carousel-placeholder">Fotos / capturas del proyecto</div>
+          </div>
           <span class="tag">Proyecto 02</span>
-          <h3>Implementación y facilitación Scrum</h3>
-          <p class="muted">Espacio para sumar ceremonias, dinámica de trabajo, gestión de backlog, definición de historias de usuario, métricas de avance y mejoras implementadas.</p>
+          <h3>Facilitación Scrum y delivery ágil</h3>
+          <p class="muted">Espacio para sumar contexto del equipo, ceremonias facilitadas, dinámica de trabajo, gestión de backlog, seguimiento de avances, bloqueos removidos y mejoras implementadas.</p>
           <div class="project-meta"><span>Scrum Master</span><span>Backlog</span><span>Agile Delivery</span></div>
         </article>
         <article class="card project reveal">
-          <div class="project-media">Foto / captura del proyecto</div>
+          <div class="project-media">
+            <div class="carousel-placeholder">Fotos / capturas del proyecto</div>
+          </div>
           <span class="tag">Proyecto 03</span>
-          <h3>Calidad, testing y reducción de riesgos</h3>
-          <p class="muted">Espacio para detallar estrategia de pruebas, casos funcionales, smoke, end-to-end, automatización, homologaciones, incidencias y acciones preventivas.</p>
+          <h3>Estrategia de calidad y reducción de riesgos</h3>
+          <p class="muted">Espacio para detallar estrategia de pruebas, cobertura funcional, smoke, end-to-end, homologaciones, incidencias críticas, acciones preventivas y resultados de estabilidad.</p>
           <div class="project-meta"><span>QA Lead</span><span>Testing</span><span>Riesgos</span></div>
         </article>
         <article class="card project reveal">
-          <div class="project-media">Foto / captura del proyecto</div>
+          <div class="project-media">
+            <div class="carousel-placeholder">Fotos / capturas del proyecto</div>
+          </div>
           <span class="tag">Proyecto 04</span>
           <h3>Integración entre negocio, producto y tecnología</h3>
-          <p class="muted">Espacio para mostrar cómo se tradujeron necesidades del negocio en entregables, criterios de aceptación, decisiones de producto y seguimiento de avances.</p>
+          <p class="muted">Espacio para mostrar cómo se tradujeron necesidades del negocio en entregables, historias de usuario, criterios de aceptación, decisiones de alcance y seguimiento de avances.</p>
           <div class="project-meta"><span>Product Ownership</span><span>Stakeholders</span><span>Delivery</span></div>
         </article>
       </div>
-      
-      <a class="lightbox" id="colorshop-full" href="#portfolio" aria-label="Cerrar imagen ampliada">
-        <img src="assets/colorshop.png" alt="Captura ampliada de la app mobile de Colorshop">
-      </a>
+
     </section>
+
+    <div class="lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+      <img id="lightboxImage" src="" alt="Captura ampliada del proyecto">
+    </div>
 
     <section id="educacion" class="container">
       <div class="section-head reveal">
@@ -592,7 +704,7 @@
         <div>
           <span class="eyebrow">Contacto</span>
           <h2 style="margin-top: 12px;">Hablemos de tu próximo proyecto.</h2>
-          <p class="muted">Disponible para oportunidades como Project Manager, Scrum Master, Product Owner o Gestora/Administradora de Proyectos en entornos digitales, fintech, QA, producto y equipos ágiles.</p>
+          <p class="muted">Disponible para oportunidades como Project Manager, Agile Project Manager, Delivery Coordinator, Product Coordinator o Gestora de Proyectos en entornos digitales, fintech, QA, producto y equipos ágiles.</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="mailto:anitamazzieri@gmail.com?subject=Contacto%20desde%20portafolio%20profesional">Enviar email</a>
             <a class="btn btn-soft" href="tel:+542215671580">Llamar</a>
@@ -656,6 +768,63 @@
         button.textContent = 'Copiado';
         setTimeout(() => button.textContent = original, 1400);
       });
+    });
+
+    document.querySelectorAll('.project-carousel').forEach(carousel => {
+      const slides = [...carousel.querySelectorAll('.carousel-slide')];
+      const prev = carousel.querySelector('.carousel-control.prev');
+      const next = carousel.querySelector('.carousel-control.next');
+      const dotsContainer = carousel.querySelector('.carousel-dots');
+      let current = 0;
+
+      if (slides.length <= 1) {
+        prev.style.display = 'none';
+        next.style.display = 'none';
+      }
+
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = `carousel-dot${index === 0 ? ' active' : ''}`;
+        dot.setAttribute('aria-label', `Ver imagen ${index + 1}`);
+        dot.addEventListener('click', () => showSlide(index));
+        dotsContainer.appendChild(dot);
+      });
+
+      if (slides.length <= 1) dotsContainer.style.display = 'none';
+
+      function showSlide(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
+        [...dotsContainer.children].forEach((dot, i) => dot.classList.toggle('active', i === current));
+      }
+
+      prev.addEventListener('click', () => showSlide(current - 1));
+      next.addEventListener('click', () => showSlide(current + 1));
+    });
+
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+
+    document.querySelectorAll('.open-lightbox').forEach(button => {
+      button.addEventListener('click', () => {
+        const image = button.querySelector('img');
+        lightboxImage.src = button.dataset.full || image.src;
+        lightboxImage.alt = image.alt || 'Captura ampliada del proyecto';
+        lightbox.classList.add('open');
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      lightboxImage.src = '';
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        lightbox.classList.remove('open');
+        lightboxImage.src = '';
+      }
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
