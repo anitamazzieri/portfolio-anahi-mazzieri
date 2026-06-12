@@ -10,31 +10,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6f9fc;
-      --surface: rgba(255,255,255,.78);
+      --bg: #f8fbff;
+      --surface: rgba(255,255,255,.88);
       --surface-strong: #ffffff;
-      --text: #14213d;
-      --muted: #5d6b82;
-      --line: rgba(20,33,61,.12);
-      --primary: #005b96;
-      --primary-2: #00a6a6;
-      --accent: #f3b23c;
-      --shadow: 0 18px 50px rgba(16, 42, 77, .12);
-      --radius: 24px;
-      --max: 1180px;
+      --text: #172033;
+      --muted: #64748b;
+      --line: rgba(23,32,51,.10);
+      --primary: #2563eb;
+      --primary-2: #14b8a6;
+      --accent: #f59e0b;
+      --shadow: 0 14px 36px rgba(15, 23, 42, .08);
     }
 
     [data-theme="dark"] {
-      --bg: #08111f;
-      --surface: rgba(16,27,46,.76);
-      --surface-strong: #111d31;
-      --text: #eef6ff;
-      --muted: #a7b7ce;
-      --line: rgba(238,246,255,.13);
-      --primary: #61b8ff;
-      --primary-2: #41d6c3;
-      --accent: #ffd071;
-      --shadow: 0 18px 50px rgba(0, 0, 0, .32);
+      --bg: #07111f;
+      --surface: rgba(15,23,42,.82);
+      --surface-strong: #0f172a;
+      --text: #f8fafc;
+      --muted: #b6c2d1;
+      --line: rgba(248,250,252,.12);
+      --primary: #60a5fa;
+      --primary-2: #2dd4bf;
+      --accent: #facc15;
+      --shadow: 0 18px 50px rgba(0, 0, 0, .36);
     }
 
     * { box-sizing: border-box; }
@@ -43,8 +41,8 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 10% 5%, rgba(0,166,166,.18), transparent 28rem),
-        radial-gradient(circle at 85% 0%, rgba(0,91,150,.18), transparent 30rem),
+        radial-gradient(circle at 10% 5%, rgba(20,184,166,.10), transparent 28rem),
+        radial-gradient(circle at 85% 0%, rgba(37,99,235,.10), transparent 30rem),
         var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -157,12 +155,15 @@
     .project .tag { display: inline-flex; margin-bottom: 14px; }
 
     .project-media {
-  min-height: 240px;
+  height: 240px;
   border-radius: 18px;
   border: 1px dashed var(--line);
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--primary) 12%, transparent), color-mix(in srgb, var(--primary-2) 10%, transparent)),
     var(--surface-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: -4px 0 18px;
   color: var(--muted);
   font-weight: 800;
@@ -172,38 +173,15 @@
   overflow: hidden;
 }
 
-    .project-carousel {
-  position: relative;
-  height: 240px;
-  display: grid;
-  place-items: center;
-}
-
-    .carousel-slide {
-  position: absolute;
-  inset: 0;
-  display: none;
+   .project-media a {
+  width: 100%;
+  height: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-    .carousel-slide.active {
-  display: flex;
-}
-
-    .carousel-slide button {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  background: transparent;
-  border-radius: 14px;
-}
-
-    .carousel-slide button:hover {
-  transform: none;
-}
-
-    .carousel-slide img {
+   .project-media img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
@@ -214,59 +192,6 @@
   border-radius: 14px;
   cursor: zoom-in;
 }
-
-    .carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  background: color-mix(in srgb, var(--surface-strong) 86%, transparent);
-  border: 1px solid var(--line);
-  color: var(--text);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
-  z-index: 2;
-}
-
-    .carousel-control:hover {
-  transform: translateY(-50%);
-}
-
-    .carousel-control.prev { left: 10px; }
-    .carousel-control.next { right: 10px; }
-
-    .carousel-dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  z-index: 2;
-}
-
-    .carousel-dot {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--muted) 45%, transparent);
-  border: 0;
-}
-
-    .carousel-dot.active {
-  width: 22px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-2));
-}
-
-    .carousel-placeholder {
-  min-height: 216px;
-  display: grid;
-  place-items: center;
-}
-
     .lightbox {
   display: none;
   position: fixed;
@@ -279,12 +204,12 @@
   cursor: zoom-out;
 }
 
-    .lightbox.open {
+   .lightbox:target {
   display: flex;
 }
 
-    .lightbox img {
-  max-width: min(92vw, 760px);
+   .lightbox img {
+  max-width: min(92vw, 520px);
   max-height: 92vh;
   width: auto;
   height: auto;
@@ -436,11 +361,11 @@
     <section id="experiencia" class="container">
       <div class="section-head reveal">
         <h2>Experiencia</h2>
-        <p>Trayectoria con evolución desde QA Lead hacia gestión de proyectos, combinando calidad, delivery ágil, producto y coordinación con stakeholders.</p>
+        <p>Trayectoria con evolución desde QA manual y automation hacia liderazgo QA, gestión de proyectos, homologaciones fintech y coordinación con stakeholders.</p>
       </div>
       <div class="timeline">
         <article class="card role reveal">
-          <div class="role-top"><h3>Project Manager · Alkimiaz</h3><span class="date">feb 2026 – abr 2026</span></div>
+          <div class="role-top"><h3>Project Manager · Alkimiaz</h3><span class="date">ago 2025 – abr 2026</span></div>
           <ul>
             <li>Liderazgo de proyectos end-to-end en soluciones fintech.</li>
             <li>Coordinación de equipos multidisciplinarios y gestión de stakeholders.</li>
@@ -451,13 +376,24 @@
           </ul>
         </article>
         <article class="card role reveal">
-          <div class="role-top"><h3>QA / Project Manager · Alkimiaz</h3><span class="date">ago 2025 – feb 2026</span></div>
+          <div class="role-top"><h3>QA Lead / Project Manager · Alkimiaz</h3><span class="date">jun 2025 – ago 2025</span></div>
           <ul>
-            <li>Etapa combinando responsabilidades de QA y gestión de proyectos en productos fintech.</li>
-            <li>Homologación de productos fintech con proveedores externos bajo modalidad por horas.</li>
-            <li>Coordinación de pruebas, seguimiento de observaciones y comunicación de avances entre equipos internos y proveedores.</li>
-            <li>Acompañamiento en procesos de aceptación funcional para asegurar entregas alineadas a requisitos técnicos y de negocio.</li>
-            <li>Seguimiento de incidencias, validaciones funcionales y documentación de acuerdos para facilitar la toma de decisiones.</li>
+            <li>Etapa combinando liderazgo QA con responsabilidades iniciales de gestión de proyectos.</li>
+            <li>Coordinación de pruebas funcionales, smoke y end-to-end en plataformas mobile y web.</li>
+            <li>Seguimiento de entregas, incidencias, prioridades y acuerdos entre equipos técnicos y stakeholders.</li>
+            <li>Colaboración en definición de historias de usuario, criterios de aceptación y validación funcional.</li>
+            <li>Acompañamiento en la organización del trabajo del equipo y mejora de procesos de delivery y testing.</li>
+          </ul>
+        </article>
+        <article class="card role reveal">
+          <div class="role-top"><h3>Consultora QA para homologaciones fintech · GOIAR</h3><span class="date">ago 2025 – ene 2026</span></div>
+          <ul>
+            <li>Asesoramiento QA bajo modalidad por horas para procesos de homologación de productos fintech.</li>
+            <li>Validación funcional de integraciones y entregables junto a proveedores externos.</li>
+            <li>Seguimiento de observaciones, incidencias y evidencias de prueba para avanzar en aprobaciones.</li>
+            <li>Comunicación con equipos internos y proveedores para alinear criterios técnicos, funcionales y de calidad.</li>
+            <li>Documentación del proceso de homologación.</li>
+
           </ul>
         </article>
         <article class="card role reveal">
@@ -471,7 +407,7 @@
           </ul>
         </article>
         <article class="card role reveal">
-          <div class="role-top"><h3>Software QA Tester · GOIAR</h3><span class="date">jul 2023 – ago 2025</span></div>
+          <div class="role-top"><h3>Software QA Tester manual + automation · GOIAR</h3><span class="date">jul 2023 – ago 2025</span></div>
           <ul>
             <li>Ejecución de pruebas manuales y automatizadas en plataformas de billeteras virtuales mobile y web.</li>
             <li>Diseño y mantenimiento de casos de prueba.</li>
@@ -615,23 +551,9 @@
       <div class="portfolio-grid">
         <article class="card project reveal">
           <div class="project-media">
-            <div class="project-carousel" aria-label="Carrusel de imágenes del proyecto Colorshop">
-              <div class="carousel-slide active">
-                <button type="button" class="open-lightbox" data-full="assets/colorshop.png" aria-label="Ampliar captura 1 de Colorshop">
-                  <img src="assets/colorshop.png" alt="Captura 1 de la app mobile de Colorshop">
-                </button>
-              </div>
-              <!-- Para sumar más imágenes, duplicá este bloque y cambiá src, data-full y alt:
-              <div class="carousel-slide">
-                <button type="button" class="open-lightbox" data-full="assets/colorshop-2.png" aria-label="Ampliar captura 2 de Colorshop">
-                  <img src="assets/colorshop-2.png" alt="Captura 2 de la app mobile de Colorshop">
-                </button>
-              </div>
-              -->
-              <button type="button" class="carousel-control prev" aria-label="Imagen anterior">‹</button>
-              <button type="button" class="carousel-control next" aria-label="Imagen siguiente">›</button>
-              <div class="carousel-dots" aria-label="Indicadores del carrusel"></div>
-            </div>
+            <a href="#colorshop-full" aria-label="Ampliar imagen de la app mobile Colorshop">
+              <img src="assets/colorshop.png" alt="Captura de la app mobile de Colorshop">
+            </a>
           </div>
           <!-- <span class="tag">Proyecto 01</span> -->
           <h3>App mobile Colorshop</h3>
@@ -646,39 +568,32 @@
         </article>
     
         <article class="card project reveal">
-          <div class="project-media">
-            <div class="carousel-placeholder">Fotos / capturas del proyecto</div>
-          </div>
+          <div class="project-media">Foto / captura del proyecto</div>
           <span class="tag">Proyecto 02</span>
           <h3>Facilitación Scrum y delivery ágil</h3>
           <p class="muted">Espacio para sumar contexto del equipo, ceremonias facilitadas, dinámica de trabajo, gestión de backlog, seguimiento de avances, bloqueos removidos y mejoras implementadas.</p>
           <div class="project-meta"><span>Scrum Master</span><span>Backlog</span><span>Agile Delivery</span></div>
         </article>
         <article class="card project reveal">
-          <div class="project-media">
-            <div class="carousel-placeholder">Fotos / capturas del proyecto</div>
-          </div>
+          <div class="project-media">Foto / captura del proyecto</div>
           <span class="tag">Proyecto 03</span>
           <h3>Estrategia de calidad y reducción de riesgos</h3>
           <p class="muted">Espacio para detallar estrategia de pruebas, cobertura funcional, smoke, end-to-end, homologaciones, incidencias críticas, acciones preventivas y resultados de estabilidad.</p>
           <div class="project-meta"><span>QA Lead</span><span>Testing</span><span>Riesgos</span></div>
         </article>
         <article class="card project reveal">
-          <div class="project-media">
-            <div class="carousel-placeholder">Fotos / capturas del proyecto</div>
-          </div>
+          <div class="project-media">Foto / captura del proyecto</div>
           <span class="tag">Proyecto 04</span>
           <h3>Integración entre negocio, producto y tecnología</h3>
           <p class="muted">Espacio para mostrar cómo se tradujeron necesidades del negocio en entregables, historias de usuario, criterios de aceptación, decisiones de alcance y seguimiento de avances.</p>
           <div class="project-meta"><span>Product Ownership</span><span>Stakeholders</span><span>Delivery</span></div>
         </article>
       </div>
-
+      
+      <a class="lightbox" id="colorshop-full" href="#portfolio" aria-label="Cerrar imagen ampliada">
+        <img src="assets/colorshop.png" alt="Captura ampliada de la app mobile de Colorshop">
+      </a>
     </section>
-
-    <div class="lightbox" id="imageLightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
-      <img id="lightboxImage" src="" alt="Captura ampliada del proyecto">
-    </div>
 
     <section id="educacion" class="container">
       <div class="section-head reveal">
@@ -768,63 +683,6 @@
         button.textContent = 'Copiado';
         setTimeout(() => button.textContent = original, 1400);
       });
-    });
-
-    document.querySelectorAll('.project-carousel').forEach(carousel => {
-      const slides = [...carousel.querySelectorAll('.carousel-slide')];
-      const prev = carousel.querySelector('.carousel-control.prev');
-      const next = carousel.querySelector('.carousel-control.next');
-      const dotsContainer = carousel.querySelector('.carousel-dots');
-      let current = 0;
-
-      if (slides.length <= 1) {
-        prev.style.display = 'none';
-        next.style.display = 'none';
-      }
-
-      slides.forEach((_, index) => {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = `carousel-dot${index === 0 ? ' active' : ''}`;
-        dot.setAttribute('aria-label', `Ver imagen ${index + 1}`);
-        dot.addEventListener('click', () => showSlide(index));
-        dotsContainer.appendChild(dot);
-      });
-
-      if (slides.length <= 1) dotsContainer.style.display = 'none';
-
-      function showSlide(index) {
-        current = (index + slides.length) % slides.length;
-        slides.forEach((slide, i) => slide.classList.toggle('active', i === current));
-        [...dotsContainer.children].forEach((dot, i) => dot.classList.toggle('active', i === current));
-      }
-
-      prev.addEventListener('click', () => showSlide(current - 1));
-      next.addEventListener('click', () => showSlide(current + 1));
-    });
-
-    const lightbox = document.getElementById('imageLightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-
-    document.querySelectorAll('.open-lightbox').forEach(button => {
-      button.addEventListener('click', () => {
-        const image = button.querySelector('img');
-        lightboxImage.src = button.dataset.full || image.src;
-        lightboxImage.alt = image.alt || 'Captura ampliada del proyecto';
-        lightbox.classList.add('open');
-      });
-    });
-
-    lightbox.addEventListener('click', () => {
-      lightbox.classList.remove('open');
-      lightboxImage.src = '';
-    });
-
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') {
-        lightbox.classList.remove('open');
-        lightboxImage.src = '';
-      }
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
