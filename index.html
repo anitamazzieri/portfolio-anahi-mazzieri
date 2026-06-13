@@ -247,6 +247,35 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .mobile-menu { display: none; }
 
+    .project-carousel {
+      padding: 0;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      justify-content: flex-start;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-track a {
+      min-width: 100%;
+      height: 100%;
+      scroll-snap-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .carousel-track img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
     @media (max-width: 900px) {
       nav ul { display: none; }
       .mobile-menu { display: inline-flex; }
@@ -548,19 +577,24 @@
       </div>
       <div class="portfolio-grid">
         <article class="card project reveal">
-          <div class="project-media">
-            <a href="#colorshop-full-1" aria-label="Ampliar imagen 1 de la app mobile Colorshop">
-              <img src="assets/colorshop.png" alt="Captura de la app mobile de Colorshop">
-            </a>
-            <a href="#colorshop-full.2" aria-label="Ampliar imagen 2 de la app mobile Colorshop">
-              <img src="assets/colorshop-home.jpeg" alt="Captura de la app mobile de Colorshop">
-            </a>
-            <a href="#colorshop-full-3" aria-label="Ampliar imagen 3 de la app mobile Colorshop">
-              <img src="assets/colorshop-decoradorvirtual.jpeg" alt="Captura de la app mobile de Colorshop">
-            </a>
-            <a href="#colorshop-full-4" aria-label="Ampliar imagen 4 de la app mobile Colorshop">
-              <img src="assets/colorshop-menu.jpeg" alt="Captura de la app mobile de Colorshop">
-            </a>
+          <div class="project-media project-carousel">
+            <div class="carousel-track">
+              <a href="#colorshop-full-1" aria-label="Ampliar imagen 1 de la app mobile Colorshop">
+                <img src="assets/colorshop.png" alt="Captura de la app mobile de Colorshop">
+              </a>
+
+              <a href="#colorshop-full-2" aria-label="Ampliar imagen 2 de la app mobile Colorshop">
+                <img src="assets/colorshop-home.jpeg" alt="Captura home de la app mobile de Colorshop">
+              </a>
+
+              <a href="#colorshop-full-3" aria-label="Ampliar imagen 3 de la app mobile Colorshop">
+                <img src="assets/colorshop-decoradorvirtual.jpeg" alt="Captura del decorador virtual de Colorshop">
+              </a>
+
+              <a href="#colorshop-full-4" aria-label="Ampliar imagen 4 de la app mobile Colorshop">
+                <img src="assets/colorshop-menu.jpeg" alt="Captura del menú de la app mobile de Colorshop">
+              </a>
+            </div>
           </div>
           <!-- <span class="tag">Proyecto 01</span> -->
           <h3>App mobile Colorshop</h3>
@@ -573,6 +607,21 @@
     <span>Regresión</span>
     <span>Reporting</span></div>
         </article>
+        <a class="lightbox" id="colorshop-full-1" href="#portfolio" aria-label="Cerrar imagen ampliada">
+          <img src="assets/colorshop.png" alt="Captura ampliada de la app mobile de Colorshop">
+        </a>
+
+        <a class="lightbox" id="colorshop-full-2" href="#portfolio" aria-label="Cerrar imagen ampliada">
+          <img src="assets/colorshop-home.jpeg" alt="Captura ampliada home de la app mobile de Colorshop">
+        </a>
+
+        <a class="lightbox" id="colorshop-full-3" href="#portfolio" aria-label="Cerrar imagen ampliada">
+          <img src="assets/colorshop-decoradorvirtual.jpeg" alt="Captura ampliada del decorador virtual de Colorshop">
+        </a>
+
+        <a class="lightbox" id="colorshop-full-4" href="#portfolio" aria-label="Cerrar imagen ampliada">
+          <img src="assets/colorshop-menu.jpeg" alt="Captura ampliada del menú de la app mobile de Colorshop">
+        </a>
     
         <article class="card project reveal">
           <div class="project-media">Foto / captura del proyecto</div>
