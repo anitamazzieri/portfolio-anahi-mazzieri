@@ -157,10 +157,12 @@
     .project .tag { display: inline-flex; margin-bottom: 14px; }
 
     .project-media {
-  height: 240px;
+  height: 420px;
   border-radius: 18px;
   border: 1px dashed var(--line);
-  background: var(--media-background);
+  background:
+    radial-gradient(circle at center, rgba(0,166,166,.16), transparent 60%),
+    var(--media-background);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,7 +170,7 @@
   color: var(--muted);
   font-weight: 800;
   text-align: center;
-  padding: 12px;
+  padding: 16px;
   position: relative;
   overflow: hidden;
 }
@@ -183,7 +185,7 @@
 
    .project-media img {
   max-width: 100%;
-  max-height: 100%;
+  max-height: 380%;
   width: auto;
   height: auto;
   object-fit: contain;
