@@ -111,14 +111,14 @@
     .profile-panel { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; }
     .avatar { width: 118px; height: 118px; border-radius: 34px; background: linear-gradient(135deg, var(--primary), var(--primary-2)); display: grid; place-items: center; color: white; font-size: 36px; font-weight: 800; box-shadow: var(--shadow); }
     .photo-avatar {
-  width: 132px;
-  height: 132px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center 20%;
-  display: block;
-  box-shadow: var(--shadow);
-}
+      width: 132px;
+      height: 132px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      box-shadow: var(--shadow);
+    }
     .quick-facts { display: grid; gap: 12px; margin-top: 28px; }
     .fact { padding: 16px; border-radius: 18px; background: color-mix(in srgb, var(--surface-strong) 78%, transparent); border: 1px solid var(--line); }
     .fact strong { display: block; font-size: 24px; line-height: 1; color: var(--primary); }
@@ -220,7 +220,15 @@
       box-shadow: 0 20px 80px rgba(0, 0, 0, .45);
     }
     .project-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
-    .project-meta span { font-size: 12px; font-weight: 800; color: var(--primary); background: color-mix(in srgb, var(--primary) 10%, transparent); border: 1px solid var(--line); padding: 6px 9px; border-radius: 999px; }
+    .project-meta span {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--muted);
+        background: transparent;
+        border: 1px solid var(--line);
+        padding: 5px 8px;
+        border-radius: 8px;
+      }
     .project-actions { 
       display: flex;
       flex-wrap: wrap;
@@ -230,8 +238,9 @@
     }
 
     .project-actions .btn {
-      padding: 9px 12px;
+      padding: 9px 13px;
       font-size: 12px;
+      border-color: color-mix(in srgb, var(--primary) 45%, var(--line));
 }
 
     .cert-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -290,6 +299,20 @@
       width: auto;
       height: auto;
       object-fit: contain;
+    }
+    .role-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+      padding-left: 0;
+    }
+
+    .role-actions .btn {
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.2;
     }
 
     @media (max-width: 900px) {
