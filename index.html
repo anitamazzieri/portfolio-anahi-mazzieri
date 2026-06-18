@@ -1,18 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portafolio profesional de M. Anahí Mazzieri Holguín, Project Manager con experiencia práctica en agilidad, producto y calidad, y background en QA." />
-  <title>M. Anahí Mazzieri Holguín | Project Manager · Agile · Product · QA</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Portafolio profesional de M. Anahí Mazzieri Holguín, IT Project Manager con experiencia en delivery fintech, equipos multidisciplinarios, producto y calidad." name="description"/>
+<title>M. Anahí Mazzieri Holguín | IT Project Manager · Agile Delivery · Fintech</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --bg: #f6f9fc;
       --surface: rgba(255,255,255,.78);
       --surface-strong: #ffffff;
+      --panel-background: rgba(255,255,255,.78);
+      --media-background: rgba(255,255,255,.45);
       --text: #14213d;
       --muted: #5d6b82;
       --line: rgba(20,33,61,.12);
@@ -28,6 +31,8 @@
       --bg: #08111f;
       --surface: rgba(16,27,46,.76);
       --surface-strong: #111d31;
+      --panel-background: rgba(16,27,46,.76);
+      --media-background: rgba(17,29,49,.55);
       --text: #eef6ff;
       --muted: #a7b7ce;
       --line: rgba(238,246,255,.13);
@@ -67,7 +72,7 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 18px; }
+    .nav { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 18px; }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -.03em; }
     .brand-mark {
       width: 42px; height: 42px; border-radius: 14px;
@@ -115,6 +120,14 @@
       font-size: 11px;
     }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .availability {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 8px;
+      padding: 9px 12px; border-radius: 999px;
+      background: color-mix(in srgb, var(--primary-2) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--primary-2) 32%, var(--line));
+      color: var(--text); font-size: 13px; font-weight: 800;
+    }
+    .availability::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--primary-2); box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary-2) 12%, transparent); }
 
     .profile-panel { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; }
     .avatar { width: 118px; height: 118px; border-radius: 34px; background: linear-gradient(135deg, var(--primary), var(--primary-2)); display: grid; place-items: center; color: white; font-size: 36px; font-weight: 800; box-shadow: var(--shadow); }
@@ -250,6 +263,17 @@
       font-size: 12px;
       border-color: color-mix(in srgb, var(--primary) 45%, var(--line));
 }
+    .portfolio-note { margin-top: 18px; padding: 18px 20px; }
+    .portfolio-note p { margin: 0; color: var(--muted); }
+
+    .placeholder { color: var(--accent); font-weight: 800; }
+    .profile-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .detail-card { padding: 18px; }
+    .detail-card strong { display: block; margin-bottom: 6px; }
+    .detail-card span { color: var(--muted); font-size: 14px; }
+    .edit-note { margin-top: 14px; color: var(--muted); font-size: 13px; }
+    .project-placeholder { border-style: dashed; }
+    .project-placeholder .project-media { height: 220px; }
 
     .cert-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .cert { padding: 18px; border-radius: 18px; background: var(--surface-strong); border: 1px solid var(--line); display: flex; gap: 12px; align-items: start; }
@@ -277,6 +301,7 @@
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .mobile-menu { display: none; }
+    .mobile-nav-open nav ul { display: flex !important; position: absolute; top: 72px; left: 16px; right: 16px; flex-direction: column; gap: 12px; padding: 16px; background: var(--surface-strong); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
 
     .project-carousel {
       padding: 0;
@@ -284,6 +309,8 @@
       scroll-snap-type: x mandatory;
       justify-content: flex-start;
     }
+
+    .project-carousel::after { content: "Deslizá para ver más"; position: absolute; right: 12px; bottom: 10px; padding: 5px 8px; border-radius: 999px; background: color-mix(in srgb, var(--surface-strong) 88%, transparent); border: 1px solid var(--line); color: var(--muted); font-size: 10px; font-weight: 700; pointer-events: none; }
 
     .carousel-track {
       display: flex;
@@ -327,7 +354,7 @@
       nav ul { display: none; }
       .mobile-menu { display: inline-flex; }
       .hero-grid, .contact { grid-template-columns: 1fr; }
-      .grid-3, .portfolio-grid, .stack-grid { grid-template-columns: 1fr; }
+      .grid-3, .portfolio-grid, .stack-grid, .profile-details { grid-template-columns: 1fr; }
       .skills-grid, .metric-strip { grid-template-columns: repeat(2, 1fr); }
       .cert-list { grid-template-columns: 1fr; }
       .section-head { display: block; }
@@ -346,577 +373,438 @@
   </style>
 </head>
 <body>
-  <div class="progress" id="progress"></div>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <span class="brand-mark">AM</span>
-        <span>Anahí Mazzieri</span>
-      </a>
-      <nav aria-label="Navegación principal">
-        <ul>
-          <li><a href="#perfil">Perfil</a></li>
-          <li><a href="#experiencia">Experiencia</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#tecnologias">Tecnologías</a></li>
-          <li><a href="#portfolio">Portafolio</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">☾</button>
-        <a class="btn btn-primary" href="Anahi_Mazzieri_CV_PM.pdf" download>Descargar CV</a>
-      </div>
-    </div>
-  </header>
+<div class="progress" id="progress"></div>
+<header>
+<div class="container nav">
+<a aria-label="Ir al inicio" class="brand" href="#inicio">
+<span class="brand-mark">AM</span>
+<span>Anahí Mazzieri</span>
+</a>
+<nav aria-label="Navegación principal">
+<ul>
 
-  <main id="inicio">
-    <section class="hero container">
-      <div class="hero-grid">
-        <article class="card hero-copy reveal">
-          <span class="eyebrow">Project Management · Agile Delivery · Product & QA</span>
-          <h1>Gestión de proyectos con foco en <span class="headline-gradient">calidad, valor y ejecución ágil.</span></h1>
-          <p class="lead">Soy M. Anahí Mazzieri Holguín, Project Manager con experiencia práctica en agilidad, producto y calidad, y background en QA. Acompaño iniciativas end-to-end en entornos fintech orientados a billeteras virtuales mobile y web.</p>
-          <div class="hero-tags" aria-label="Especialidades">
-            <span class="tag">Agile / Scrum</span>
-            <span class="tag">Stakeholder Management</span>
-            <span class="tag">Product & Backlog</span>
-            <span class="tag">QA & Testing</span>
-            <span class="tag">Fintech / Wallets</span>
-            <span class="tag">Selenium + Python</span>
-            <span class="tag">Jira · Postman</span>
-            <span class="tag">Mobile & Web</span>
-            <span class="tag">IA aplicada</span>
-          </div>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#portfolio">Ver proyectos</a>
-            <a class="btn btn-soft" href="mailto:anitamazzieri@gmail.com">Contactar</a>
-            <a class="btn btn-soft" href="https://linkedin.com/in/anahi-mazzieri" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </article>
-        <aside class="card profile-panel reveal">
-          <div>
-            <img class="avatar photo-avatar" src="foto-perfil.jpeg" alt="Foto de perfil de Anahí Mazzieri">
-            <h3 style="margin-top: 22px;">Perfil profesional</h3>
-            <p class="muted">Conecto estrategia, producto, stakeholders y equipos técnicos para transformar necesidades de negocio en entregas claras, medibles y sostenibles.</p>
-          </div>
-          <div class="quick-facts">
-            <div class="fact"><strong>End-to-end</strong><span>Liderazgo del ciclo completo de proyectos</span></div>
-            <div class="fact"><strong>Agile</strong><span>Facilitación Scrum y mejora continua</span></div>
-            <div class="fact"><strong>QA</strong><span>Base sólida en calidad y testing</span></div>
-            <div class="fact"><strong>Producto</strong><span>Backlog, historias de usuario, alcance y valor</span></div>
-          </div>
-        </aside>
-      </div>
-    </section>
+<li><a href="#perfil">Perfil</a></li>
+<li><a href="#experiencia">Experiencia</a></li>
+<li><a href="#skills">Skills</a></li>
 
-    <section id="perfil" class="container">
-      <div class="section-head reveal">
-        <h2>Perfil profesional</h2>
-        <p>Una mirada integral del producto, desde la definición de necesidades hasta la entrega, validación y mejora continua.</p>
-      </div>
-      <div class="grid-3">
-        <article class="card value-card reveal">
-          <div class="icon">↗</div>
-          <h3>Gestión estratégica</h3>
-          <p class="muted">Planificación, seguimiento de objetivos, coordinación multidisciplinaria y alineación con stakeholders para asegurar entregas en tiempo y forma.</p>
-        </article>
-        <article class="card value-card reveal">
-          <div class="icon">◈</div>
-          <h3>Agilidad aplicada</h3>
-          <p class="muted">Facilitación de ceremonias Scrum, colaboración en priorización de historias de usuario y promoción de prácticas orientadas a valor.</p>
-        </article>
-        <article class="card value-card reveal">
-          <div class="icon">✓</div>
-          <h3>Calidad como ventaja</h3>
-          <p class="muted">Background en QA para anticipar riesgos, reducir incidencias en producción y fortalecer la confiabilidad de las entregas.</p>
-        </article>
-      </div>
-    </section>
+<li><a href="#portfolio">Portafolio</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
+<button aria-expanded="false" aria-label="Abrir menú" class="btn btn-soft mobile-menu" id="mobileMenu">Menú</button>
+<div class="nav-actions">
+<button aria-label="Cambiar tema" class="theme-toggle" id="themeToggle">☾</button>
+<a class="btn btn-primary" download="" href="Anahi_Mazzieri_CV_PM.pdf">Descargar CV</a>
+</div>
+</div>
+</header>
+<main id="inicio">
+<section class="hero container">
+<div class="hero-grid">
+<article class="card hero-copy reveal">
+<span class="eyebrow">IT Project Manager · Agile Delivery · Fintech</span>
+<h1>Conecto negocio y tecnología para lograr <span class="headline-gradient">entregas claras, confiables y con valor.</span></h1>
+<p class="lead">Soy M. Anahí Mazzieri Holguín, IT Project Manager con background en QA. Gestioné hasta tres proyectos fintech en simultáneo y equipos multidisciplinarios de hasta 15 personas, coordinando prioridades, riesgos, calidad y comunicación con clientes.</p>
+<div class="availability">Disponible para nuevas oportunidades desde abril de 2026 · Modalidad remota · Abierta a relación de dependencia, contractor o freelance</div>
+<div aria-label="Especialidades" class="hero-tags">
+<span class="tag">Agile / Scrum</span>
+<span class="tag">Stakeholder Management</span>
+<span class="tag">Product &amp; Backlog</span>
+<span class="tag">QA &amp; Testing</span>
+<span class="tag">Fintech / Wallets</span>
 
-    <section id="experiencia" class="container">
-      <div class="section-head reveal">
-        <h2>Experiencia</h2>
-        <p>Trayectoria con evolución desde QA manual y automation hacia liderazgo QA, gestión de proyectos, homologaciones fintech y coordinación con stakeholders.</p>
-      </div>
-      <div class="timeline">
-        <article class="card role reveal">
-          <div class="role-top"><h3>Project Manager · Alkimiaz</h3><span class="date">ago 2025 – abr 2026</span></div>
-          <ul>
-            <li>Liderazgo de proyectos end-to-end en soluciones fintech.</li>
-            <li>Coordinación de equipos multidisciplinarios y gestión de stakeholders.</li>
-            <li>Facilitación de ceremonias ágiles Scrum.</li>
-            <li>Definición y priorización de historias de usuario junto a equipos técnicos y de negocio.</li>
-            <li>Seguimiento de entregas, cumplimiento de objetivos y optimización de procesos para mejorar tiempos de entrega.</li>
-            <li>Reducción de incidencias en producción mediante un enfoque preventivo de calidad.</li>
-          </ul>
-          <div class="role-actions">
-            <a class="btn btn-soft" href="https://www.linkedin.com/company/alkimiaz/posts/?feedView=all" target="_blank" rel="noopener">Ver empresa en LinkedIn</a>
-          </div>
-        </article>
-
-        <article class="card role reveal">
-          <div class="role-top"><h3>QA Lead / Project Manager · Alkimiaz</h3><span class="date">jun 2025 – ago 2025</span></div>
-          <ul>
-            <li>Etapa combinando liderazgo QA con responsabilidades iniciales de gestión de proyectos.</li>
-            <li>Coordinación de pruebas funcionales, smoke y end-to-end en plataformas mobile y web.</li>
-            <li>Seguimiento de entregas, incidencias, prioridades y acuerdos entre equipos técnicos y stakeholders.</li>
-            <li>Colaboración en definición de historias de usuario, criterios de aceptación y validación funcional.</li>
-            <li>Acompañamiento en la organización del trabajo del equipo y mejora de procesos de delivery y testing.</li>
-          </ul>
-          <div class="role-actions">
-            <a class="btn btn-soft" href="https://www.linkedin.com/company/alkimiaz/posts/?feedView=all" target="_blank" rel="noopener">Ver empresa en LinkedIn</a>
-          </div>
-        </article>
-
-        <article class="card role reveal">
-          <div class="role-top"><h3>Consultora QA para homologaciones fintech · GOIAR</h3><span class="date">ago 2025 – ene 2026</span></div>
-          <ul>
-            <li>Asesoramiento QA bajo modalidad por horas para procesos de homologación de productos fintech.</li>
-            <li>Validación funcional de integraciones y entregables junto a proveedores externos.</li>
-            <li>Seguimiento de observaciones, incidencias y evidencias de prueba para avanzar en aprobaciones.</li>
-            <li>Comunicación con equipos internos y proveedores para alinear criterios técnicos, funcionales y de calidad.</li>
-          </ul>
-          <div class="role-actions">
-            <a class="btn btn-soft" href="https://www.linkedin.com/company/goiar/posts/?feedView=all" target="_blank" rel="noopener">Ver empresa en LinkedIn</a>
-          </div>
-        </article>
-
-        <article class="card role reveal">
-          <div class="role-top"><h3>QA Lead · Alkimiaz</h3><span class="date">feb 2025 – ago 2025</span></div>
-          <ul>
-            <li>Coordinación de pruebas funcionales, smoke y end-to-end en plataformas de billeteras virtuales mobile y web.</li>
-            <li>Gestión de equipo QA.</li>
-            <li>Planificación y ejecución de estrategias de testing.</li>
-            <li>Comunicación con stakeholders.</li>
-            <li>Aseguramiento de calidad en entregas.</li>
-          </ul>
-          <div class="role-actions">
-            <a class="btn btn-soft" href="https://www.linkedin.com/company/alkimiaz/posts/?feedView=all" target="_blank" rel="noopener">Ver empresa en LinkedIn</a>
-          </div>
-        </article>
-
-        <article class="card role reveal">
-          <div class="role-top"><h3>Software QA Tester manual + automation · GOIAR</h3><span class="date">jul 2023 – ago 2025</span></div>
-          <ul>
-            <li>Ejecución de pruebas manuales y automatizadas en plataformas de billeteras virtuales mobile y web.</li>
-            <li>Diseño y mantenimiento de casos de prueba.</li>
-            <li>Validación funcional y end-to-end de aplicaciones.</li>
-            <li>Coordinación operativa del equipo de QA y rol de referente frente a otros equipos y stakeholders.</li>
-            <li>Gestión de homologaciones con proveedores externos.</li>
-            <li>Reporte y seguimiento de incidencias.</li>
-            <li>Mejora de procesos de testing y coordinación entre equipos.</li>
-          </ul>
-          <div class="role-actions">
-            <a class="btn btn-soft" href="https://www.linkedin.com/company/goiar/posts/?feedView=all" target="_blank" rel="noopener">Ver empresa en LinkedIn</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="skills" class="container">
-      <div class="section-head reveal">
-        <h2>Skills y herramientas de trabajo</h2>
-        <p>Competencias orientadas a gestión de proyectos digitales, delivery ágil, producto, calidad y coordinación de equipos.</p>
-      </div>
-      <div class="tabs reveal" role="tablist" aria-label="Filtro de skills">
-        <button class="tab active" data-filter="all">Todas</button>
-        <button class="tab" data-filter="management">Gestión</button>
-        <button class="tab" data-filter="agile">Agile / Producto</button>
-        <button class="tab" data-filter="quality">QA</button>
-        <button class="tab" data-filter="tech">Tecnología</button>
-        <button class="tab" data-filter="business">Profesionales</button>
-      </div>
-      <div class="skills-grid reveal" id="skillsGrid">
-        <div class="skill" data-type="management">Project Management<small>Planificación, ejecución, seguimiento y control</small></div>
-        <div class="skill" data-type="management">Delivery Management<small>Gestión de entregas, tiempos y dependencias</small></div>
-        <div class="skill" data-type="management">Risk & Issue Management<small>Anticipación de riesgos y seguimiento de incidencias</small></div>
-        <div class="skill" data-type="management">Process Improvement<small>Optimización operativa y mejora continua</small></div>
-        <div class="skill" data-type="agile">Facilitación Scrum<small>Ceremonias, acuerdos de trabajo y remoción de bloqueos</small></div>
-        <div class="skill" data-type="agile">Product & Backlog Management<small>Prioridades, valor, alcance y seguimiento funcional</small></div>
-        <div class="skill" data-type="agile">User Stories<small>Definición, refinamiento y criterios de aceptación</small></div>
-        <div class="skill" data-type="agile">Agile Methodologies<small>Scrum, iteración, feedback y mejora continua</small></div>
-        <div class="skill" data-type="quality">QA / Testing<small>Calidad funcional, smoke y end-to-end</small></div>
-        <div class="skill" data-type="quality">Test Strategy<small>Planificación y ejecución de estrategias de testing</small></div>
-        <div class="skill" data-type="quality">Test Automation<small>Selenium WebDriver con Python</small></div>
-        <div class="skill" data-type="quality">Bug Tracking<small>Reporte, priorización y seguimiento de defectos</small></div>
-        <div class="skill" data-type="quality">API Testing<small>Validación de servicios, endpoints y contratos funcionales</small></div>
-        <div class="skill" data-type="tech">Jira<small>Gestión de backlog, tickets, sprints e incidencias</small></div>
-        <div class="skill" data-type="tech">Postman<small>Pruebas y validación de APIs REST</small></div>
-        <div class="skill" data-type="tech">Confluence<small>Documentación funcional, acuerdos y seguimiento</small></div>
-        <div class="skill" data-type="tech">Selenium WebDriver<small>Automatización de pruebas web</small></div>
-        <div class="skill" data-type="tech">Python<small>Base para automatización y análisis técnico</small></div>
-        <div class="skill" data-type="tech">Fintech & Wallets<small>Billeteras virtuales mobile y web</small></div>
-        <div class="skill" data-type="tech">Mobile & Web Apps<small>Validación funcional en plataformas digitales</small></div>
-        <div class="skill" data-type="tech">Cybersecurity Awareness<small>Buenas prácticas de seguridad y prevención</small></div>
-        <div class="skill" data-type="tech">Systems Analysis<small>Base técnica en análisis de sistemas</small></div>
-        <div class="skill" data-type="business">Stakeholder Management<small>Alineación, negociación y comunicación profesional</small></div>
-        <div class="skill" data-type="business">Team Leadership<small>Coordinación de equipos multidisciplinarios y QA</small></div>
-        <div class="skill" data-type="business">Vendor Coordination<small>Homologaciones y coordinación con proveedores externos</small></div>
-        <div class="skill" data-type="business">Comunicación estratégica<small>Comunicación clara de avances, riesgos y decisiones</small></div>
-        <div class="skill" data-type="business">Coaching para líderes<small>Facilitación, acompañamiento y liderazgo de equipos</small></div>
-        <div class="skill" data-type="tech">IA aplicada<small>Uso y creación de skills para agentes de IA</small></div>
-      </div>
-    </section>
-
-    <section id="tecnologias" class="container">
-      <div class="section-head reveal">
-        <h2>Herramientas, dominios y prácticas</h2>
-        <p>Mapa rápido del ecosistema profesional para roles de Project Management, Agile Delivery, producto y calidad.</p>
-      </div>
-      <div class="stack-grid">
-        <article class="card stack-card reveal">
-          <h3>Stack funcional y tecnológico</h3>
-          <p class="muted">Herramientas y prácticas clave para gestión de proyectos digitales, seguimiento de delivery, documentación, QA y validación técnica.</p>
-
-          <h4>Gestión, producto y colaboración</h4>
-          <div class="stack-list" aria-label="Herramientas de gestión, producto y colaboración">
-            <span class="tag">Jira</span>
-            <span class="tag">Confluence</span>
-            <span class="tag">Notion</span>
-            <span class="tag">Backlog Management</span>
-            <span class="tag">Sprint Planning</span>
-            <span class="tag">User Stories</span>
-            <span class="tag">Criterios de aceptación</span>
-            <span class="tag">Roadmap / Planning</span>
-            <span class="tag">Google Workspace</span>
-            <span class="tag">Microsoft Office</span>
-            <span class="tag">Slack / Teams</span>
-          </div>
-
-          <h4>QA, testing y automatización</h4>
-          <div class="stack-list" aria-label="Herramientas de QA, testing y automatización">
-            <span class="tag">Postman</span>
-            <span class="tag">API Testing</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">Selenium WebDriver</span>
-            <span class="tag">Python</span>
-            <span class="tag">Playwright</span>
-            <span class="tag">Testing manual</span>
-            <span class="tag">Testing automatizado</span>
-            <span class="tag">Smoke Testing</span>
-            <span class="tag">End-to-End Testing</span>
-            <span class="tag">Regression Testing</span>
-            <span class="tag">Mobile Testing</span>
-            <span class="tag">Appium</span>
-            <span class="tag">Bug Reporting</span>
-            <span class="tag">Test Cases</span>
-          </div>
-
-          <h4>Dominios y prácticas</h4>
-          <div class="stack-list" aria-label="Dominios y prácticas profesionales">
-            <span class="tag">Mobile Apps</span>
-            <span class="tag">Web Platforms</span>
-            <span class="tag">Billeteras virtuales</span>
-            <span class="tag">Fintech</span>
-            <span class="tag">Homologaciones</span>
-            <span class="tag">Stakeholder Management</span>
-            <span class="tag">Gestión de riesgos</span>
-            <span class="tag">Ciberseguridad básica</span>
-            <span class="tag">Análisis de sistemas</span>
-            <span class="tag">Mejora continua</span>
-          </div>
-          <div class="metric-strip">
-            <div class="metric"><strong>Jira</strong><span>Backlog, tickets y sprints</span></div>
-            <div class="metric"><strong>Postman</strong><span>Validación de APIs</span></div>
-            <div class="metric"><strong>QA</strong><span>Estrategia y ejecución</span></div>
-            <div class="metric"><strong>Agile</strong><span>Facilitación y mejora continua</span></div>
-            <div class="metric"><strong>Delivery</strong><span>Entregas de valor</span></div>
-          </div>
-        </article>
-        <aside class="card stack-card reveal">
-          <h3>Diferenciales profesionales</h3>
-          <ul class="insight-list">
-            <li>Perfil híbrido entre gestión, producto y calidad, ideal para equipos digitales que necesitan orden, foco y entregas confiables.</li>
-            <li>Experiencia coordinando equipos QA y multidisciplinarios, con comunicación directa con stakeholders.</li>
-            <li>Capacidad para conectar necesidades de negocio con historias de usuario, criterios de aceptación y validación funcional.</li>
-            <li>Foco en reducción de incidencias, mejora de tiempos de entrega y optimización de procesos.</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section id="portfolio" class="container">
-      <div class="section-head reveal">
-        <h2>Portafolio de proyectos</h2>
-        <!--<p>Casos y ejemplos de proyectos presentados con contexto, rol, metodología, entregables e impacto. Esta sección queda preparada para sumar las descripciones y fotos que compartas.</p> -->
-      </div>
-
-      <div class="portfolio-grid">
+<span class="tag">Jira · Postman</span>
+<span class="tag">Mobile &amp; Web</span>
 
 
 
-        
+</div>
+<div class="hero-cta">
+<a class="btn btn-primary" href="#portfolio">Ver proyectos</a>
+<a class="btn btn-soft" href="mailto:anitamazzieri@gmail.com">Contactar</a>
+<a class="btn btn-soft" href="https://linkedin.com/in/anahi-mazzieri" rel="noopener" target="_blank">LinkedIn</a>
+</div>
+</article>
+<aside class="card profile-panel reveal">
+<div>
+<img alt="Foto de perfil de Anahí Mazzieri" class="avatar photo-avatar" src="foto-perfil.jpeg"/>
+<h3 style="margin-top: 22px;">Perfil profesional</h3>
+<p class="muted">Integro gestión, producto y calidad para ordenar prioridades, anticipar riesgos y dar visibilidad del avance mediante seguimiento, reuniones y demos de producto.</p>
+</div>
+<div class="quick-facts">
+<div class="fact"><strong>Delivery</strong><span>Gestión de alcance, prioridades y entregables</span></div><div class="fact"><strong>Producto</strong><span>Backlog, historias de usuario y criterios de aceptación</span></div><div class="fact"><strong>Calidad</strong><span>Background QA aplicado a decisiones de proyecto</span></div></div>
+</aside>
+</div>
+</section>
+
+<section class="container" id="perfil">
+<div class="section-head reveal">
+<h2>Información profesional</h2>
+<p>Datos clave para que recruiters y hiring managers puedan evaluar rápidamente el encaje con la oportunidad.</p>
+</div>
+<div class="profile-details reveal">
+<div class="card detail-card"><strong>Ubicación</strong><span>Magdalena, Buenos Aires, Argentina</span></div>
+<div class="card detail-card"><strong>Modalidad buscada</strong><span>Remoto</span></div>
+<div class="card detail-card"><strong>Tipo de contratación</strong><span>Abierta a relación de dependencia, contractor o freelance</span></div>
+<div class="card detail-card"><strong>Idiomas</strong><span>Inglés intermedio</span></div>
+<div class="card detail-card"><strong>Disponibilidad horaria</strong><span>Full time, con disponibilidad horaria flexible</span></div>
+<div class="card detail-card"><strong>Relocalización y viajes</strong><span>Disponible para viajes y relocalización según la oportunidad</span></div>
+</div>
+<p class="edit-note reveal"><strong>Nota para editar:</strong> reemplazá cada texto entre corchetes por tu información definitiva.</p>
+</section>
+
+<section class="container" id="experiencia">
+<div class="section-head reveal">
+<h2>Experiencia</h2>
+<p>Evolución desde QA y liderazgo de calidad hacia gestión integral de proyectos fintech.</p>
+</div>
+<div class="timeline">
+<article class="card role reveal">
+<div class="role-top"><h3>Alkimiaz · Evolución de QA Lead a Project Manager</h3><span class="date">feb 2025 – abr 2026</span></div>
+<h4>Project Manager · ago 2025 – abr 2026</h4>
+<ul>
+<li>Gestión end-to-end de hasta tres proyectos fintech en simultáneo y coordinación de equipos multidisciplinarios de hasta 15 personas.</li>
+<li>Planificación del delivery y seguimiento de alcance, prioridades, riesgos, dependencias, incidencias y entregables.</li>
+<li>Facilitación de ceremonias Scrum, gestión y refinamiento del backlog, historias de usuario y criterios de aceptación.</li>
+<li>Comunicación periódica de avances a clientes mediante reuniones de seguimiento y demos funcionales del producto.</li>
+<li><strong>Impacto:</strong> Participación en el delivery completo de una app fintech desde cero hasta su salida a producción, gestionando un backlog de gran volumen que incluía funcionalidades para app mobile, backoffice administrativo y app web.</li>
+<li>Articulación entre negocio, desarrollo, QA y stakeholders para dar visibilidad a decisiones, bloqueos y próximos pasos.</li>
+</ul>
+<h4>QA Lead y transición a Project Management · feb 2025 – ago 2025</h4>
+<ul>
+<li>Liderazgo del equipo QA y planificación de pruebas funcionales, smoke, regresión y end-to-end.</li>
+<li>Coordinación de prioridades, incidencias y entregas en plataformas mobile y backoffice web.</li>
+<li>Participación creciente en backlog, definición funcional, criterios de aceptación y mejora de procesos de delivery.</li>
+</ul>
+<div class="role-actions">
+<a class="btn btn-soft" href="https://www.linkedin.com/company/alkimiaz/posts/?feedView=all" rel="noopener" target="_blank">Ver empresa en LinkedIn</a>
+</div>
+</article>
+<article class="card role reveal">
+<div class="role-top"><h3>Consultora QA freelance para homologaciones fintech · GOIAR</h3><span class="date">ago 2025 – ene 2026</span></div>
+<ul>
+<li>Consultoría freelance por horas, realizada en paralelo al rol principal, para homologaciones de productos fintech.</li>
+<li>Validación de integraciones, ejecución de pruebas, seguimiento de incidencias y preparación de evidencias.</li>
+<li>Coordinación con equipos internos y proveedores externos para resolver desvíos y completar las homologaciones.</li>
+<li><strong>Alcance:</strong> Homologación de aproximadamente 7 productos de delivery de wallet junto al proveedor Agilpagos, incluyendo validación de integraciones, pruebas, seguimiento de incidencias y preparación de evidencias.</li>
+</ul>
+<div class="role-actions">
+<a class="btn btn-soft" href="https://www.linkedin.com/company/goiar/posts/?feedView=all" rel="noopener" target="_blank">Ver empresa en LinkedIn</a>
+</div>
+</article>
+<article class="card role reveal">
+<div class="role-top"><h3>Software QA Tester manual y automation · GOIAR</h3><span class="date">jul 2023 – ago 2025</span></div>
+<ul>
+<li>Pruebas manuales y automatizadas en billeteras virtuales, aplicaciones mobile y plataformas web.</li>
+<li>Diseño de casos, validación end-to-end, regresión, reporte de incidencias y homologaciones.</li>
+<li>Coordinación operativa de QA y mejora de procesos entre equipos técnicos y funcionales.</li>
+<li><strong>Alcance:</strong> Participación en proyectos ya iniciados y en productos desarrollados desde cero hasta producción, gestionando el equipo QA, diseñando planes de prueba, reportando incidencias y automatizando casos para mejorar la cobertura del proceso de validación.</li>
+</ul>
+<div class="role-actions">
+<a class="btn btn-soft" href="https://www.linkedin.com/company/goiar/posts/?feedView=all" rel="noopener" target="_blank">Ver empresa en LinkedIn</a>
+</div>
+</article>
+</div>
+</section>
+<section class="container" id="skills">
+<div class="section-head reveal">
+<h2>Competencias principales</h2>
+<p>Una combinación de gestión, agilidad, producto y calidad aplicada al delivery de productos digitales.</p>
+</div>
+
+<div class="skills-grid reveal" id="skillsGrid">
+<div class="skill" data-type="management">Project &amp; Delivery Management<small>Planificación, ejecución, seguimiento, alcance y entregables</small></div>
+<div class="skill" data-type="management">Risk, Issue &amp; Dependency Management<small>Anticipación de riesgos, bloqueos y seguimiento de incidencias</small></div>
+<div class="skill" data-type="agile">Scrum &amp; Agile Facilitation<small>Ceremonias, acuerdos de trabajo y remoción de impedimentos</small></div>
+<div class="skill" data-type="agile">Backlog &amp; Functional Definition<small>Priorización, refinamiento, historias y criterios de aceptación</small></div>
+<div class="skill" data-type="business">Stakeholder &amp; Client Communication<small>Reuniones de seguimiento, demos, avances, riesgos y decisiones</small></div>
+<div class="skill" data-type="business">Team Leadership<small>Coordinación de equipos multidisciplinarios y liderazgo QA</small></div>
+<div class="skill" data-type="quality">QA Strategy &amp; Testing<small>Pruebas funcionales, smoke, regresión y end-to-end</small></div>
+<div class="skill" data-type="tech">Jira · Confluence · Postman<small>Backlog, documentación, incidencias y validación de APIs REST</small></div>
+<div class="skill" data-type="tech">Fintech · Mobile · Backoffice Web<small>Billeteras virtuales y productos digitales para usuarios y empresas</small></div>
+<div class="skill" data-type="business">Vendor Coordination<small>Homologaciones y coordinación con proveedores externos</small></div>
+<div class="skill" data-type="quality">QA Automation<small>Experiencia en automatización y formación en Selenium con Python</small></div>
+<div class="skill" data-type="business">Product Demos<small>Presentación funcional de avances y entregables a clientes</small></div>
+<div class="skill" data-type="tech">Otras herramientas<small>Slack · Microsoft Teams · Google Meet · Notion · GitHub · Reporting</small></div>
+<div class="skill" data-type="management">Gestión adicional<small>Roadmap · Estimaciones · Planificación de entregas · Seguimiento de avances · Priorización · Gestión de riesgos, incidencias y dependencias</small></div>
+</div>
+</section>
+
+<section class="container" id="portfolio">
+<div class="section-head reveal">
+<h2>Portafolio de proyectos</h2>
+<!--<p>Casos y ejemplos de proyectos presentados con contexto, rol, metodología, entregables e impacto. Esta sección queda preparada para sumar las descripciones y fotos que compartas.</p> -->
+<p>Tres casos centrales muestran mi trabajo en gestión y delivery; los proyectos QA complementan el recorrido sin quitar foco al perfil de Project Manager.</p></div>
+<div class="portfolio-grid">
 <!-- Proyecto 01: PALTA -->
-        <article class="card project reveal">
-          <div class="project-media project-carousel">
-            <div class="carousel-track">
-              <a href="#palta-full-1" aria-label="Ampliar imagen 1 de la app mobile Palta">
-                <img src="assets/palta-splash.jpeg" alt="Captura de la app mobile de Palta">
-              </a>
-              <a href="#palta-full-2" aria-label="Ampliar imagen 2 de la app mobile palta">
-                <img src="assets/palta-home.jpeg" alt="Captura home de la app mobile de palta">
-              </a>
-              <a href="#palta-full-3" aria-label="Ampliar imagen 3 de la app mobile palta">
-                <img src="assets/palta-carrusel.jpeg" alt="Captura del decorador virtual de palta">
-              </a>
-              <a href="#palta-full-4" aria-label="Ampliar imagen 4 de la app mobile palta">
-                <img src="assets/palta-bo.png" alt="Captura del menú del Backoffice de palta">
-              </a>
-            </div>
-          </div>
-          <h3>Billetera fintech y backoffice administrativo · Palta</h3>
-          <p class="muted"><strong>Empresa / cliente:</strong> ALKIMIAZ / Palta</p>
-          <p class="muted"><strong>Contexto:</strong> billetera mobile fintech con backoffice administrativo web, orientada a la gestión de usuarios, operaciones y funcionalidades propias de un ecosistema financiero digital. El proyecto requería coordinación constante entre equipo técnico, stakeholders y áreas de negocio para avanzar con entregas iterativas y mantener alineadas las prioridades del producto.</p>
-          <p class="muted"><strong>Rol:</strong> Project Manager, coordinando la gestión operativa del proyecto, facilitación de ceremonias Scrum, seguimiento de sprints, organización del backlog, redacción de historias de usuario, gestión documental y comunicación con stakeholders. También acompañé al equipo técnico en la identificación y resolución de bloqueos, manteniendo visibilidad sobre avances, entregables y prioridades de cada iteración.</p>
-          <p class="muted"><strong>Impacto:</strong> mi participación ayudó a mantener una dinámica de trabajo más ordenada, con mayor visibilidad sobre avances, prioridades y bloqueos de cada sprint. Contribuí a alinear al equipo técnico con los stakeholders, mejorar la trazabilidad de los entregables y acompañar tanto la ejecución del proyecto como la dinámica interna del equipo.</p>
-          <div class="project-actions">
-            <a class="btn btn-soft" href="https://alkimiaz.com/" target="_blank" rel="noopener">Ver empresa</a>
-            <a class="btn btn-soft" href="https://paltawallet.com/" target="_blank" rel="noopener">Ver cliente</a>
-            <a class="btn btn-soft" href="https://play.google.com/store/apps/details?id=com.palta.app" target="_blank" rel="noopener">Ver app</a>
-          </div>
-          <div class="project-meta">
-            <span>Project Management</span>
-            <span>Fintech</span>
-            <span>Mobile Wallet</span>
-            <span>Backoffice Web</span>
-            <span>Scrum</span>
-            <span>Backlog Management</span>
-            <span>User Stories</span>
-            <span>Stakeholder Management</span>
-            <span>Delivery</span>
-            <span>Documentación</span>
-          </div>
-        </article>
-        <a class="lightbox" id="palta-full-1" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/palta-splash.jpeg" alt="Captura ampliada de la app mobile de palta">
-        </a>
-        <a class="lightbox" id="palta-full-2" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/palta-home.jpeg" alt="Captura ampliada home de la app mobile de palta">
-        </a>
-        <a class="lightbox" id="palta-full-3" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/palta-carrusel.jpeg" alt="Captura ampliada del decorador virtual de palta">
-        </a>
-        <a class="lightbox" id="palta-full-4" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/palta-bo.png" alt="Captura ampliada del menú de la app mobile de palta">
-        </a>
-
-       <!-- Proyecto: BILLETERA FINTECH BAJO NDA -->
-      <article class="card project reveal">
-        <div class="project-media">
-          <a href="#nda-wallet-full-1" aria-label="Ampliar imagen conceptual de billetera fintech bajo NDA">
-            <img src="assets/billetera-nda.png" alt="Imagen conceptual de billetera fintech bajo NDA">
-          </a>
-        </div>
-
-        <h3>Billetera fintech bajo NDA · Cliente confidencial</h3>
-        <p class="muted"><strong>Empresa / cliente:</strong> Alkimiaz / Cliente confidencial</p>
-        <p class="muted"><strong>Contexto:</strong> proyecto fintech confidencial vinculado a una billetera digital mobile y su backoffice administrativo web. Por acuerdos de confidencialidad, no se detallan marca, funcionalidades específicas ni información sensible del producto.</p>
-        <p class="muted"><strong>Rol:</strong> cumplí un rol híbrido de QA Lead y Project Manager durante una etapa de transición profesional. Desde la mirada de calidad, coordiné pruebas funcionales, seguimiento de incidencias, validación de ajustes y acompañamiento del equipo QA. En paralelo, fui incorporando responsabilidades de gestión vinculadas al seguimiento de entregas, organización del trabajo, comunicación con stakeholders y alineación entre necesidades funcionales, prioridades del producto y ejecución técnica.</p>
-        <p class="muted"><strong>Impacto:</strong> este rol puente permitió fortalecer la conexión entre calidad y delivery, anticipando riesgos funcionales y manteniendo trazabilidad sobre incidencias, avances y decisiones. La combinación entre criterio QA y gestión del proyecto ayudó a ordenar el proceso de entrega y a sostener la calidad del producto durante su evolución.</p>
-
-        <div class="project-meta">
-          <span>Project Management</span>
-          <span>QA Lead</span>
-          <span>Fintech</span>
-          <span>Mobile Wallet</span>
-          <span>Backoffice Web</span>
-          <span>Scrum</span>
-          <span>Delivery</span>
-          <span>Bug Tracking</span>
-          <span>Stakeholders</span>
-          <span>NDA</span>
-        </div>
-      </article>
-      <a class="lightbox" id="nda-wallet-full-1" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/billetera-nda.png" alt="Imagen conceptual ampliada de billetera fintech bajo NDA">
-      </a>
+<article class="card project reveal">
+<div class="project-media project-carousel">
+<div class="carousel-track">
+<a aria-label="Ampliar imagen 1 de la app mobile Palta" href="#palta-full-1">
+<img alt="Captura de la app mobile de Palta" src="assets/palta-splash.jpeg"/>
+</a>
+<a aria-label="Ampliar imagen 2 de la app mobile palta" href="#palta-full-2">
+<img alt="Captura home de la app mobile de palta" src="assets/palta-home.jpeg"/>
+</a>
+<a aria-label="Ampliar imagen 3 de la app mobile palta" href="#palta-full-3">
+<img alt="Captura del decorador virtual de palta" src="assets/palta-carrusel.jpeg"/>
+</a>
+<a aria-label="Ampliar imagen 4 de la app mobile palta" href="#palta-full-4">
+<img alt="Captura del menú del Backoffice de palta" src="assets/palta-bo.png"/>
+</a>
+</div>
+</div>
+<h3>Billetera fintech y backoffice administrativo · Palta</h3><p class="muted"><strong>Contexto: </strong>Billetera mobile y backoffice web para gestión de usuarios y operaciones financieras.</p><p class="muted"><strong>Rol: </strong>Project Manager a cargo del delivery, ceremonias, backlog, historias de usuario, documentación y comunicación con stakeholders.</p><p class="muted"><strong>Resultado: </strong>Mayor trazabilidad de prioridades, bloqueos, sprints y entregables, con avances comunicados al cliente mediante reuniones de seguimiento y demos del producto. <strong>Métrica:</strong> <span class="placeholder">[completar con releases, demos, funcionalidades o mejora observable]</span>.</p>
 
 
-        <!-- Proyecto : COLORSHOP -->
-        <article class="card project reveal">
-          <div class="project-media project-carousel">
-            <div class="carousel-track">
-              <a href="#colorshop-full-1" aria-label="Ampliar imagen 1 de la app mobile Colorshop">
-                <img src="assets/colorshop.png" alt="Captura de la app mobile de Colorshop">
-              </a>
 
-              <a href="#colorshop-full-2" aria-label="Ampliar imagen 2 de la app mobile Colorshop">
-                <img src="assets/colorshop-home.jpeg" alt="Captura home de la app mobile de Colorshop">
-              </a>
 
-              <a href="#colorshop-full-3" aria-label="Ampliar imagen 3 de la app mobile Colorshop">
-                <img src="assets/colorshop-decoradorvirtual.jpeg" alt="Captura del decorador virtual de Colorshop">
-              </a>
+<div class="project-actions">
+<a class="btn btn-soft" href="https://alkimiaz.com/" rel="noopener" target="_blank">Ver empresa</a>
+<a class="btn btn-soft" href="https://paltawallet.com/" rel="noopener" target="_blank">Ver cliente</a>
+<a class="btn btn-soft" href="https://play.google.com/store/apps/details?id=com.palta.app" rel="noopener" target="_blank">Ver app</a>
+</div>
+<div class="project-meta">
+<span>Project Management</span>
+<span>Fintech</span>
+<span>Mobile Wallet</span>
+<span>Backoffice Web</span>
+<span>Scrum</span>
+<span>Backlog Management</span>
 
-              <a href="#colorshop-full-4" aria-label="Ampliar imagen 4 de la app mobile Colorshop">
-                <img src="assets/colorshop-menu.jpeg" alt="Captura del menú de la app mobile de Colorshop">
-              </a>
-            </div>
-          </div>
-          <h3>App mobile y backoffice administrativo · Colorshop</h3>
-            <p class="muted"><strong>Empresa / cliente:</strong> GOIAR / Colorshop</p>
-            <p class="muted"><strong>Contexto:</strong> aplicación mobile orientada a mejorar la experiencia digital de clientes de Colorshop, junto con un backoffice administrativo web para la gestión y customización de contenidos. La app incluía funcionalidades como un decorador virtual, donde el usuario podía subir una imagen o tomar una foto para simular cambios de color en paredes, además de secciones de shop para canje de puntos, noticias y capacitaciones. Todas estas secciones podían ser administradas y configuradas desde el backoffice.</p>
-            <p class="muted"><strong>Rol:</strong> QA Manual, participando en la planificación y ejecución de pruebas funcionales sobre la app mobile y el backoffice web. Me encargué del diseño y mantenimiento de casos de prueba, validación de flujos críticos, ejecución de pruebas de regresión, detección y documentación de incidencias, seguimiento de bugs y validación de ajustes junto al equipo de desarrollo.</p>
-            <p class="muted"><strong>Impacto:</strong> mi participación contribuyó a mejorar la trazabilidad de defectos, detectar riesgos funcionales de forma temprana y reforzar la calidad de las entregas. El trabajo de QA permitió validar funcionalidades clave antes de su disponibilidad para usuarios finales y equipos internos, asegurando mayor confiabilidad en flujos visuales, contenido configurable y experiencia de usuario.</p>
-          <div class="project-actions">
-            <a class="btn btn-soft" href="https://goiar.com/" target="_blank" rel="noopener">Ver empresa</a>
-            <a class="btn btn-soft" href="https://www.colorshop.com.ar/" target="_blank" rel="noopener">Ver cliente</a>
-            <a class="btn btn-soft" href="https://play.google.com/store/apps/details?id=goiar.colorshop&hl=es_AR" target="_blank" rel="noopener">Ver app</a>
-          </div>
-          
-          <div class="project-meta">
-            <span>QA Manual</span>
-            <span>Mobile Testing</span>
-            <span>Backoffice Web</span>
-            <span>Regresión</span>
-            <span>Reporting</span>
-          </div>
-        </article>
-        <a class="lightbox" id="colorshop-full-1" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/colorshop.png" alt="Captura ampliada de la app mobile de Colorshop">
-        </a>
-        <a class="lightbox" id="colorshop-full-2" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/colorshop-home.jpeg" alt="Captura ampliada home de la app mobile de Colorshop">
-        </a>
-        <a class="lightbox" id="colorshop-full-3" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/colorshop-decoradorvirtual.jpeg" alt="Captura ampliada del decorador virtual de Colorshop">
-        </a>
-        <a class="lightbox" id="colorshop-full-4" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/colorshop-menu.jpeg" alt="Captura ampliada del menú de la app mobile de Colorshop">
-        </a>
 
-        <!-- Proyecto : BUQUEBUS -->
-            <article class="card project reveal">
-               <div class="project-media project-carousel">
-                <div class="carousel-track">
-                  <a href="#buquebus-full-1" aria-label="Ampliar imagen 1 de la app mobile buquebus">
-                    <img src="assets/buquebus.png" alt="Captura de la app mobile de buquebus">
-                  </a>
 
-                  <a href="#buquebus-full-2" aria-label="Ampliar imagen 2 de la app mobile buquebus">
-                    <img src="assets/buquebus-web.jpg" alt="Captura home de la app mobile de buquebus">
-                  </a>
-                </div>
-              </div>
-              <h3>App mobile y plataforma web · Buquebus</h3>
-              <p class="muted"><strong>Empresa / cliente:</strong> GOIAR / Buquebus</p>
-              <p class="muted"><strong>Contexto:</strong> proyecto de validación funcional sobre una app mobile en etapa pre-release y sobre la plataforma web de Buquebus, con foco en flujos vinculados a gestión de pasajes, check-in digital, experiencia de usuario y validación de identidad mediante Face ID.</p>
-              <p class="muted"><strong>Rol:</strong> QA Manual, participando en la ejecución de pruebas funcionales mobile y web, revisión de flujos críticos, detección y documentación de incidencias, validación de ajustes y seguimiento de hallazgos junto al equipo.</p>
-              <p class="muted"><strong>Impacto:</strong> aporte a la mejora de calidad del producto durante la etapa de desarrollo y validación, identificando errores funcionales y oportunidades de mejora en procesos clave antes de su avance a etapas posteriores.</p>
-              <div class="project-actions">
-                <a class="btn btn-soft" href="https://goiar.com/" target="_blank" rel="noopener">Ver empresa</a>
-                <a class="btn btn-soft" href="https://www.buquebus.com/ar" target="_blank" rel="noopener">Ver cliente</a>
-              </div>
-              <div class="project-meta">
-                <span>QA Manual</span>
-                <span>Mobile Testing</span>
-                <span>Web Testing</span>
-                <span>Pre-release QA</span>
-                <span>Face ID</span>
-                <span>Check-in digital</span>
-                <span>Validación funcional</span>
-              </div>
-            </article>
-            <a class="lightbox" id="buquebus-full-1" href="#portfolio" aria-label="Cerrar imagen ampliada">
-              <img src="assets/buquebus.png" alt="Captura ampliada de la app mobile de buquebus">
-            </a>
-            <a class="lightbox" id="buquebus-full-2" href="#portfolio" aria-label="Cerrar imagen ampliada">
-              <img src="assets/buquebus-web.jpg" alt="Captura ampliada home de la app mobile de buquebus">
-            </a>
-            
-        <!-- Proyecto : GOLLET -->      
-        <article class="card project reveal">
-          <div class="project-media project-carousel">
-            <div class="carousel-track">
-              <a href="#gollet-full-1" aria-label="Ampliar imagen 1 de la app mobile gollet">
-                <img src="assets/gollet.png" alt="Captura de la app mobile de gollet">
-              </a>
 
-              <a href="#gollet-full-2" aria-label="Ampliar imagen 2 de la app mobile gollet">
-                <img src="assets/gonnectia-bo-empresas.png" alt="Captura home de la app mobile de gollet">
-              </a>
-            </div>
-          </div>
-          <h3>Billetera fintech de marca blanca · Gollet</h3>
-          <p class="muted"><strong>Empresa / cliente:</strong> GOIAR / Gollet</p>
-          <p class="muted"><strong>Contexto:</strong> producto fintech de marca blanca diseñado como base para el delivery de soluciones a distintos clientes. Incluye una app mobile y un backoffice web administrativo, con versiones orientadas a individuos y empresas. La app contempla flujos como onboarding y validación de identidad mediante Face ID, transferencias, préstamos, criptomonedas y dólar MEP. El backoffice permite a administradores gestionar cuentas, usuarios y operaciones vinculadas a los clientes de la billetera.</p>
-          <p class="muted"><strong>Rol:</strong> QA Manual y Automation, participando en la validación funcional de la app mobile y del backoffice web, ejecución de casos de prueba manuales, revisión de flujos críticos, detección y documentación de incidencias, validación de ajustes y automatización de pruebas para reforzar la cobertura y confiabilidad del producto.</p>
-          <p class="muted"><strong>Impacto:</strong> aporte a la calidad y estabilidad de un producto base reutilizable para múltiples clientes, validando funcionalidades críticas del ecosistema fintech y fortaleciendo la cobertura de pruebas en flujos sensibles como onboarding, autenticación, gestión de cuentas, transferencias y operaciones financieras.</p>
-          <div class="project-actions">
-                <a class="btn btn-soft" href="https://goiar.com/" target="_blank" rel="noopener">Ver empresa</a>
-                <a class="btn btn-soft" href="https://goiar.com/billetera-digital-marca-blanca/" target="_blank" rel="noopener">Ver cliente</a>
-              </div>
-          <div class="project-meta">
-            <span>QA Automation</span>
-            <span>Mobile Testing</span>
-            <span>Backoffice Web</span>
-            <span>Fintech</span>
-            <span>Marca blanca</span>
-            <span>Transferencias</span>
-            <span>Préstamos</span>
-            <span>Crypto</span>
-            <span>Dólar MEP</span>
-          </div>
-        </article>
-        <a class="lightbox" id="gollet-full-1" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/gollet.png" alt="Captura ampliada de la app mobile de gollet">
-        </a>
-        <a class="lightbox" id="gollet-full-2" href="#portfolio" aria-label="Cerrar imagen ampliada">
-          <img src="assets/gonnectia-bo-empresas.png" alt="Captura ampliada home de la app mobile de gollet">
-        </a>
-        
-        <!-- Proyecto 03: XX -->  
-        <article class="card project reveal">
+</div>
+</article>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="palta-full-1">
+<img alt="Captura ampliada de la app mobile de palta" src="assets/palta-splash.jpeg"/>
+</a>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="palta-full-2">
+<img alt="Captura ampliada home de la app mobile de palta" src="assets/palta-home.jpeg"/>
+</a>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="palta-full-3">
+<img alt="Captura ampliada del decorador virtual de palta" src="assets/palta-carrusel.jpeg"/>
+</a>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="palta-full-4">
+<img alt="Captura ampliada del menú de la app mobile de palta" src="assets/palta-bo.png"/>
+</a>
+<!-- Proyecto: BILLETERA FINTECH BAJO NDA -->
+<article class="card project reveal">
+<div class="project-media">
+<a aria-label="Ampliar imagen conceptual de billetera fintech bajo NDA" href="#nda-wallet-full-1">
+<img alt="Imagen conceptual de billetera fintech bajo NDA" src="assets/billetera-nda.png"/>
+</a>
+</div>
+<h3>Billetera fintech bajo NDA · Cliente confidencial</h3><p class="muted"><strong>Contexto: </strong>Billetera digital mobile y backoffice web desarrollados bajo confidencialidad.</p><p class="muted"><strong>Rol: </strong>Rol híbrido de QA Lead y Project Manager, coordinando calidad, incidencias, entregas y stakeholders.</p><p class="muted"><strong>Resultado: </strong>Mejor conexión entre calidad y delivery, con seguimiento visible de riesgos, incidencias y decisiones para los equipos y stakeholders. <strong>Métrica:</strong> <span class="placeholder">[completar con alcance, frecuencia de seguimiento o resultado]</span>.</p>
 
-       
-    </section>
 
-    <section id="educacion" class="container">
-      <div class="section-head reveal">
-        <h2>Educación y certificaciones</h2>
-        <p>Formación técnica y aprendizaje continuo en testing, ciberseguridad, agilidad, liderazgo, IA aplicada y gestión de proyectos.</p>
-      </div>
-      <div class="cert-list reveal">
-        <div class="cert"><span class="check">✓</span><div><strong>Tecnicatura Superior en Análisis de Sistemas</strong><br><span class="muted">Instituto Superior de Formación Docente y Técnica N°58 · 2024</span></div></div>
-        <div class="cert"><span class="check">✓</span><div><strong>Bachillerato</strong><br><span class="muted">Instituto Sagrada Familia</span></div></div>
-        <div class="cert"><span class="check">✓</span><div><strong>Fundamentos de la Gestión de Proyectos</strong><br><span class="muted">Platzi</span></div></div>
-        <div class="cert"><span class="check">✓</span><div><strong>Gestión de Equipos Ágiles Remotos</strong><br><span class="muted">Platzi</span></div></div>
-        <div class="cert"><span class="check">✓</span><div><strong>Habilidades de coaching para líderes y gerentes</strong><br><span class="muted">Formación reciente</span></div></div>
-        <div class="cert"><span class="check">✓</span><div><strong>Características de un gran Scrum Master</strong><br><span class="muted">Formación reciente</span></div></div>
-        <div class="cert"><span class="check">✓</span><div><strong>Skills para agentes de IA: Qué son, cómo usarlos y cómo crear skills</strong><br><span class="muted">Formación reciente</span></div></div>
-        <div class="cert"><span class="check">✓</span><div><strong>Selenium WebDriver con Python</strong><br><span class="muted">Udemy</span></div></div>
-        <div class="cert"><span class="check">✓</span><div><strong>Software Testing desde cero</strong><br><span class="muted">Udemy</span></div></div>
-        <div class="cert"><span class="check">✓</span><div><strong>Cybersecurity Awareness</strong><br><span class="muted">CAPC</span></div></div>
-      </div>
-    </section>
 
-    <section id="contacto" class="container">
-      <div class="card contact reveal">
-        <div>
-          <span class="eyebrow">Contacto</span>
-          <h2 style="margin-top: 12px;">Hablemos de tu próximo proyecto.</h2>
-          <p class="muted">Disponible para oportunidades como Project Manager, Agile Project Manager, Delivery Coordinator, Product Coordinator o Gestora de Proyectos en entornos digitales, fintech, QA, producto y equipos ágiles.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="mailto:anitamazzieri@gmail.com?subject=Contacto%20desde%20portafolio%20profesional">Enviar email</a>
-            <a class="btn btn-soft" href="tel:+542215671580">Llamar</a>
-          </div>
-        </div>
-        <div class="contact-methods">
-          <div class="contact-item"><span><strong>Email</strong><br><span class="muted">anitamazzieri@gmail.com</span></span><button class="copy" data-copy="anitamazzieri@gmail.com">Copiar</button></div>
-          <div class="contact-item"><span><strong>Teléfono</strong><br><span class="muted">+54 221 567 1580</span></span><button class="copy" data-copy="+542215671580">Copiar</button></div>
-          <div class="contact-item"><span><strong>LinkedIn</strong><br><span class="muted">linkedin.com/in/anahi-mazzieri</span></span><a class="btn copy" href="https://linkedin.com/in/anahi-mazzieri" target="_blank" rel="noopener">Abrir</a></div>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="container">
-    <p>© <span id="year"></span> M. Anahí Mazzieri Holguín · Portafolio profesional interactivo</p>
-  </footer>
+<div class="project-meta">
+<span>Project Management</span>
+<span>QA Lead</span>
+<span>Fintech</span>
+<span>Mobile Wallet</span>
+<span>Backoffice Web</span>
+<span>Scrum</span>
 
-  <script>
+
+
+
+</div>
+</article>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="nda-wallet-full-1">
+<img alt="Imagen conceptual ampliada de billetera fintech bajo NDA" src="assets/billetera-nda.png"/>
+</a>
+<!-- Proyecto : COLORSHOP -->
+<article class="card project reveal">
+<div class="project-media project-carousel">
+<div class="carousel-track">
+<a aria-label="Ampliar imagen 1 de la app mobile Colorshop" href="#colorshop-full-1">
+<img alt="Captura de la app mobile de Colorshop" src="assets/colorshop.png"/>
+</a>
+<a aria-label="Ampliar imagen 2 de la app mobile Colorshop" href="#colorshop-full-2">
+<img alt="Captura home de la app mobile de Colorshop" src="assets/colorshop-home.jpeg"/>
+</a>
+<a aria-label="Ampliar imagen 3 de la app mobile Colorshop" href="#colorshop-full-3">
+<img alt="Captura del decorador virtual de Colorshop" src="assets/colorshop-decoradorvirtual.jpeg"/>
+</a>
+<a aria-label="Ampliar imagen 4 de la app mobile Colorshop" href="#colorshop-full-4">
+<img alt="Captura del menú de la app mobile de Colorshop" src="assets/colorshop-menu.jpeg"/>
+</a>
+</div>
+</div>
+<h3>App mobile y backoffice administrativo · Colorshop</h3><p class="muted"><strong>Contexto: </strong>App mobile con decorador virtual y backoffice para contenidos, beneficios y capacitaciones.</p><p class="muted"><strong>Rol: </strong>QA Manual en pruebas funcionales, regresión, reporte de incidencias y validación de ajustes.</p>
+
+
+
+
+<div class="project-actions">
+<a class="btn btn-soft" href="https://goiar.com/" rel="noopener" target="_blank">Ver empresa</a>
+<a class="btn btn-soft" href="https://www.colorshop.com.ar/" rel="noopener" target="_blank">Ver cliente</a>
+<a class="btn btn-soft" href="https://play.google.com/store/apps/details?id=goiar.colorshop&amp;hl=es_AR" rel="noopener" target="_blank">Ver app</a>
+</div>
+<div class="project-meta">
+<span>QA Manual</span>
+<span>Mobile Testing</span>
+<span>Backoffice Web</span>
+<span>Regresión</span>
+<span>Reporting</span>
+</div>
+</article>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="colorshop-full-1">
+<img alt="Captura ampliada de la app mobile de Colorshop" src="assets/colorshop.png"/>
+</a>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="colorshop-full-2">
+<img alt="Captura ampliada home de la app mobile de Colorshop" src="assets/colorshop-home.jpeg"/>
+</a>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="colorshop-full-3">
+<img alt="Captura ampliada del decorador virtual de Colorshop" src="assets/colorshop-decoradorvirtual.jpeg"/>
+</a>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="colorshop-full-4">
+<img alt="Captura ampliada del menú de la app mobile de Colorshop" src="assets/colorshop-menu.jpeg"/>
+</a>
+<!-- Proyecto : BUQUEBUS -->
+<article class="card project reveal">
+<div class="project-media project-carousel">
+<div class="carousel-track">
+<a aria-label="Ampliar imagen 1 de la app mobile buquebus" href="#buquebus-full-1">
+<img alt="Captura de la app mobile de buquebus" src="assets/buquebus.png"/>
+</a>
+<a aria-label="Ampliar imagen 2 de la app mobile buquebus" href="#buquebus-full-2">
+<img alt="Captura home de la app mobile de buquebus" src="assets/buquebus-web.jpg"/>
+</a>
+</div>
+</div>
+<h3>App mobile y plataforma web · Buquebus</h3><p class="muted"><strong>Contexto: </strong>Validación pre-release de app y web en flujos de pasajes, check-in e identidad.</p><p class="muted"><strong>Rol: </strong>QA Manual en pruebas funcionales, documentación de incidencias y validación de correcciones.</p>
+
+
+
+
+<div class="project-actions">
+<a class="btn btn-soft" href="https://goiar.com/" rel="noopener" target="_blank">Ver empresa</a>
+<a class="btn btn-soft" href="https://www.buquebus.com/ar" rel="noopener" target="_blank">Ver cliente</a>
+</div>
+<div class="project-meta">
+<span>QA Manual</span>
+<span>Mobile Testing</span>
+<span>Web Testing</span>
+<span>Pre-release QA</span>
+<span>Face ID</span>
+<span>Check-in digital</span>
+
+</div>
+</article>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="buquebus-full-1">
+<img alt="Captura ampliada de la app mobile de buquebus" src="assets/buquebus.png"/>
+</a>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="buquebus-full-2">
+<img alt="Captura ampliada home de la app mobile de buquebus" src="assets/buquebus-web.jpg"/>
+</a>
+<!-- Proyecto : GOLLET -->
+<article class="card project reveal">
+<div class="project-media project-carousel">
+<div class="carousel-track">
+<a aria-label="Ampliar imagen 1 de la app mobile gollet" href="#gollet-full-1">
+<img alt="Captura de la app mobile de gollet" src="assets/gollet.png"/>
+</a>
+<a aria-label="Ampliar imagen 2 de la app mobile gollet" href="#gollet-full-2">
+<img alt="Captura home de la app mobile de gollet" src="assets/gonnectia-bo-empresas.png"/>
+</a>
+</div>
+</div>
+<h3>Billetera fintech de marca blanca · Gollet</h3><p class="muted"><strong>Contexto: </strong>Producto fintech reutilizable con app mobile y backoffice para individuos y empresas.</p><p class="muted"><strong>Rol: </strong>QA Manual y Automation sobre onboarding, transferencias, cuentas y operaciones financieras.</p>
+
+
+
+
+<div class="project-actions">
+<a class="btn btn-soft" href="https://goiar.com/" rel="noopener" target="_blank">Ver empresa</a>
+<a class="btn btn-soft" href="https://goiar.com/billetera-digital-marca-blanca/" rel="noopener" target="_blank">Ver cliente</a>
+</div>
+<div class="project-meta">
+<span>QA Automation</span>
+<span>Mobile Testing</span>
+<span>Backoffice Web</span>
+<span>Fintech</span>
+<span>Marca blanca</span>
+<span>Transferencias</span>
+
+
+
+</div>
+</article>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="gollet-full-1">
+<img alt="Captura ampliada de la app mobile de gollet" src="assets/gollet.png"/>
+</a>
+<a aria-label="Cerrar imagen ampliada" class="lightbox" href="#portfolio" id="gollet-full-2">
+<img alt="Captura ampliada home de la app mobile de gollet" src="assets/gonnectia-bo-empresas.png"/>
+</a>
+</div>
+<div class="card portfolio-note reveal"><p><strong>Experiencia QA adicional:</strong> además de los casos publicados, participé en otros productos mobile y web. Los siguientes bloques quedan preparados para incorporar los más relevantes sin perder el foco principal en Project Management.</p></div>
+<div class="portfolio-grid" style="margin-top: 18px;">
+<article class="card project project-placeholder reveal">
+<div class="project-media"><span class="placeholder">[Agregar imagen o captura del proyecto QA]</span></div>
+<h3 class="placeholder">[Nombre del proyecto QA 1]</h3>
+<p class="muted"><strong>Contexto:</strong> <span class="placeholder">[Producto, industria y usuarios]</span></p>
+<p class="muted"><strong>Rol:</strong> <span class="placeholder">[QA Manual / Automation / Lead y responsabilidades]</span></p>
+<p class="muted"><strong>Resultado:</strong> <span class="placeholder">[Releases, cobertura, incidencias detectadas o mejora lograda]</span></p>
+<div class="project-meta"><span class="placeholder">[Herramientas]</span><span class="placeholder">[Tipo de testing]</span><span class="placeholder">[Plataforma]</span></div>
+</article>
+<article class="card project project-placeholder reveal">
+<div class="project-media"><span class="placeholder">[Agregar imagen o captura del proyecto QA]</span></div>
+<h3 class="placeholder">[Nombre del proyecto QA 2]</h3>
+<p class="muted"><strong>Contexto:</strong> <span class="placeholder">[Producto, industria y usuarios]</span></p>
+<p class="muted"><strong>Rol:</strong> <span class="placeholder">[QA Manual / Automation / Lead y responsabilidades]</span></p>
+<p class="muted"><strong>Resultado:</strong> <span class="placeholder">[Releases, cobertura, incidencias detectadas o mejora lograda]</span></p>
+<div class="project-meta"><span class="placeholder">[Herramientas]</span><span class="placeholder">[Tipo de testing]</span><span class="placeholder">[Plataforma]</span></div>
+</article>
+</div>
+</section>
+<section class="container" id="educacion">
+<div class="section-head reveal">
+<h2>Educación y certificaciones</h2>
+<p>Formación técnica y actualización continua en gestión, agilidad, liderazgo y calidad.</p>
+</div>
+<div class="cert-list reveal">
+<div class="cert"><span class="check">✓</span><div><strong>Tecnicatura Superior en Análisis de Sistemas</strong><br/><span class="muted">Instituto Superior de Formación Docente y Técnica N°58 · 2024</span></div></div>
+
+<div class="cert"><span class="check">✓</span><div><strong>Fundamentos de la Gestión de Proyectos</strong><br/><span class="muted">Platzi · <span class="placeholder">[año]</span></span></div></div>
+<div class="cert"><span class="check">✓</span><div><strong>Gestión de Equipos Ágiles Remotos</strong><br/><span class="muted">Platzi · <span class="placeholder">[año]</span></span></div></div>
+<div class="cert"><span class="check">✓</span><div><strong>Habilidades de coaching para líderes y gerentes</strong><br/><span class="muted"><span class="placeholder">[institución]</span> · <span class="placeholder">[año]</span></span></div></div>
+
+
+<div class="cert"><span class="check">✓</span><div><strong>Selenium WebDriver con Python</strong><br/><span class="muted">Udemy · <span class="placeholder">[año]</span></span></div></div>
+<div class="cert"><span class="check">✓</span><div><strong>Software Testing desde cero</strong><br/><span class="muted">Udemy · <span class="placeholder">[año]</span></span></div></div>
+<div class="cert"><span class="check">✓</span><div><strong>Cybersecurity Awareness</strong><br/><span class="muted">CAPC · <span class="placeholder">[año]</span></span></div></div>
+</div>
+</section>
+<section class="container" id="contacto">
+<div class="card contact reveal">
+<div>
+<span class="eyebrow">Contacto</span>
+<h2 style="margin-top: 12px;">Disponible para nuevas oportunidades.</h2>
+<p class="muted">Busco posiciones de IT Project Management, Agile Delivery y coordinación de productos digitales. Disponibilidad desde abril de 2026 para modalidad remota, con disponibilidad horaria flexible y apertura a relación de dependencia, contractor o freelance.</p>
+<div class="hero-cta">
+<a class="btn btn-primary" href="mailto:anitamazzieri@gmail.com?subject=Contacto%20desde%20portafolio%20profesional">Enviar email</a>
+<a class="btn btn-soft" href="tel:+542215671580">Llamar</a>
+</div>
+</div>
+<div class="contact-methods">
+<div class="contact-item"><span><strong>Email</strong><br/><span class="muted">anitamazzieri@gmail.com</span></span><button class="copy" data-copy="anitamazzieri@gmail.com">Copiar</button></div>
+<div class="contact-item"><span><strong>Teléfono</strong><br/><span class="muted">+54 221 567 1580</span></span><button class="copy" data-copy="+542215671580">Copiar</button></div>
+<div class="contact-item"><span><strong>Ubicación</strong><br/><span class="muted">Magdalena, Buenos Aires, Argentina</span></span></div>
+<div class="contact-item"><span><strong>Idiomas</strong><br/><span class="muted">Inglés intermedio</span></span></div>
+<div class="contact-item"><span><strong>LinkedIn</strong><br/><span class="muted">linkedin.com/in/anahi-mazzieri</span></span><a class="btn copy" href="https://linkedin.com/in/anahi-mazzieri" rel="noopener" target="_blank">Abrir</a></div>
+</div>
+</div>
+</section>
+</main>
+<footer class="container">
+<p>© <span id="year"></span> M. Anahí Mazzieri Holguín · Portafolio profesional interactivo</p>
+</footer>
+<script>
     const root = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme');
@@ -962,6 +850,21 @@
         setTimeout(() => button.textContent = original, 1400);
       });
     });
+
+
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenu) {
+      mobileMenu.addEventListener('click', () => {
+        const isOpen = document.body.classList.toggle('mobile-nav-open');
+        mobileMenu.setAttribute('aria-expanded', String(isOpen));
+      });
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          document.body.classList.remove('mobile-nav-open');
+          mobileMenu.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
