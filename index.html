@@ -129,15 +129,29 @@
     }
     .availability::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--primary-2); box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary-2) 12%, transparent); }
 
-    .profile-panel { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; }
-    .avatar { width: 118px; height: 118px; border-radius: 34px; background: linear-gradient(135deg, var(--primary), var(--primary-2)); display: grid; place-items: center; color: white; font-size: 36px; font-weight: 800; box-shadow: var(--shadow); }
+   .profile-panel {
+      padding: 42px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100%;
+      text-align: center;
+    }
+
+    .profile-panel > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .photo-avatar {
-      width: 132px;
-      height: 132px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center 20%;
       display: block;
+      margin: 0 auto;
       box-shadow: var(--shadow);
     }
     .quick-facts { display: grid; gap: 12px; margin-top: 28px; }
@@ -403,8 +417,8 @@
 <div class="hero-grid">
 <article class="card hero-copy reveal">
 <span class="eyebrow">IT Project Manager · Agile Delivery · Fintech</span>
-<h1>Conecto negocio y tecnología para lograr <span class="headline-gradient">entregas claras, confiables y con valor.</span></h1>
-<p class="lead">Soy M. Anahí Mazzieri Holguín, IT Project Manager con background en QA. Gestioné hasta tres proyectos fintech en simultáneo y equipos multidisciplinarios de hasta 15 personas, coordinando prioridades, riesgos, calidad y comunicación con clientes.</p>
+<h1>Gestión de proyectos con foco en <span class="headline-gradient">calidad, valor y ejecución ágil.</span></h1>
+<p class="lead">Soy M. Anahí Mazzieri Holguín, Project Manager con experiencia práctica en agilidad, producto y calidad, y background en QA. Acompaño iniciativas end-to-end en entornos fintech orientados a billeteras virtuales mobile y web.</p>
 <div class="availability">Disponible para nuevas oportunidades desde abril de 2026 · Modalidad remota · Abierta a relación de dependencia, contractor o freelance</div>
 <div aria-label="Especialidades" class="hero-tags">
 <span class="tag">Agile / Scrum</span>
@@ -428,7 +442,7 @@
 <aside class="card profile-panel reveal">
 <div>
 <img alt="Foto de perfil de Anahí Mazzieri" class="avatar photo-avatar" src="foto-perfil.jpeg"/>
-<h3 style="margin-top: 22px;">Perfil profesional</h3>
+<h3 style="margin-top: 28px;">Perfil profesional</h3>
 <p class="muted">Integro gestión, producto y calidad para ordenar prioridades, anticipar riesgos y dar visibilidad del avance mediante seguimiento, reuniones y demos de producto.</p>
 </div>
 <div class="quick-facts">
@@ -440,7 +454,6 @@
 <section class="container" id="perfil">
 <div class="section-head reveal">
 <h2>Información profesional</h2>
-<p>Datos clave para que recruiters y hiring managers puedan evaluar rápidamente el encaje con la oportunidad.</p>
 </div>
 <div class="profile-details reveal">
 <div class="card detail-card"><strong>Ubicación</strong><span>Magdalena, Buenos Aires, Argentina</span></div>
@@ -450,7 +463,6 @@
 <div class="card detail-card"><strong>Disponibilidad horaria</strong><span>Full time, con disponibilidad horaria flexible</span></div>
 <div class="card detail-card"><strong>Relocalización y viajes</strong><span>Disponible para viajes y relocalización según la oportunidad</span></div>
 </div>
-<p class="edit-note reveal"><strong>Nota para editar:</strong> reemplazá cada texto entre corchetes por tu información definitiva.</p>
 </section>
 
 <section class="container" id="experiencia">
@@ -486,7 +498,7 @@
 <li>Consultoría freelance por horas, realizada en paralelo al rol principal, para homologaciones de productos fintech.</li>
 <li>Validación de integraciones, ejecución de pruebas, seguimiento de incidencias y preparación de evidencias.</li>
 <li>Coordinación con equipos internos y proveedores externos para resolver desvíos y completar las homologaciones.</li>
-<li><strong>Alcance:</strong> Homologación de aproximadamente 7 productos de delivery de wallet junto al proveedor Agilpagos, incluyendo validación de integraciones, pruebas, seguimiento de incidencias y preparación de evidencias.</li>
+<li><strong>Alcance:</strong> Homologación de aproximadamente 7 productos de delivery de wallet junto al proveedor Agilpagos, incluyendo validación de integraciones, pruebas, seguimiento de incidencias y preparación de documentacion.</li>
 </ul>
 <div class="role-actions">
 <a class="btn btn-soft" href="https://www.linkedin.com/company/goiar/posts/?feedView=all" rel="noopener" target="_blank">Ver empresa en LinkedIn</a>
@@ -498,7 +510,7 @@
 <li>Pruebas manuales y automatizadas en billeteras virtuales, aplicaciones mobile y plataformas web.</li>
 <li>Diseño de casos, validación end-to-end, regresión, reporte de incidencias y homologaciones.</li>
 <li>Coordinación operativa de QA y mejora de procesos entre equipos técnicos y funcionales.</li>
-<li><strong>Alcance:</strong> Participación en proyectos ya iniciados y en productos desarrollados desde cero hasta producción, gestionando el equipo QA, diseñando planes de prueba, reportando incidencias y automatizando casos para mejorar la cobertura del proceso de validación.</li>
+<li><strong>Alcance:</strong> Participación en proyectos ya iniciados y en productos desarrollados desde cero hasta producción, diseñando planes de prueba, reportando incidencias y automatizando casos para mejorar la cobertura del proceso de validación.</li>
 </ul>
 <div class="role-actions">
 <a class="btn btn-soft" href="https://www.linkedin.com/company/goiar/posts/?feedView=all" rel="noopener" target="_blank">Ver empresa en LinkedIn</a>
@@ -533,7 +545,7 @@
 <section class="container" id="portfolio">
 <div class="section-head reveal">
 <h2>Portafolio de proyectos</h2>
-<!--<p>Casos y ejemplos de proyectos presentados con contexto, rol, metodología, entregables e impacto. Esta sección queda preparada para sumar las descripciones y fotos que compartas.</p> -->
+<!--<p>Casos y ejemplos de proyectos presentados con contexto, rol, metodología, entregables e impacto</p> -->
 <p>Tres casos centrales muestran mi trabajo en gestión y delivery; los proyectos QA complementan el recorrido sin quitar foco al perfil de Project Manager.</p></div>
 <div class="portfolio-grid">
 <!-- Proyecto 01: PALTA -->
@@ -554,7 +566,11 @@
 </a>
 </div>
 </div>
-<h3>Billetera fintech y backoffice administrativo · Palta</h3><p class="muted"><strong>Contexto: </strong>Billetera mobile y backoffice web para gestión de usuarios y operaciones financieras.</p><p class="muted"><strong>Rol: </strong>Project Manager a cargo del delivery, ceremonias, backlog, historias de usuario, documentación y comunicación con stakeholders.</p><p class="muted"><strong>Resultado: </strong>Mayor trazabilidad de prioridades, bloqueos, sprints y entregables, con avances comunicados al cliente mediante reuniones de seguimiento y demos del producto. <strong>Métrica:</strong> <span class="placeholder">[completar con releases, demos, funcionalidades o mejora observable]</span>.</p>
+<h3>Billetera fintech con APP mobile y web + backoffice administrativo · Palta</h3>
+<p class="muted"><strong>Contexto: </strong>Billetera mobile y backoffice web para gestión de usuarios y operaciones financieras.</p>
+<p class="muted"><strong>Rol: </strong>Project Manager a cargo del delivery, ceremonias, backlog, historias de usuario, documentación y comunicación con stakeholders.</p>
+<p class="muted"><strong>Resultado: </strong>Mayor trazabilidad de prioridades, bloqueos, sprints y entregables, con avances comunicados al cliente mediante reuniones de seguimiento y demos del producto.</p>
+<p class="muted"><strong>Metrica: </strong>Proyecto fintech gestionado en paralelo con otros deliveries, coordinando equipos multidisciplinarios de hasta 15 personas y un backlog funcional de alto volumen para app mobile, backoffice y app web.</p>
 
 
 
